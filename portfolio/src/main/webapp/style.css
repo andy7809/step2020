@@ -21,11 +21,19 @@ hr {
 }
 
 #title{
+    margin-top: auto;
+    margin-left: 0.75%;
     flex: 1;
 }
 
 #avatar {
     border-radius: 50%;
+    width: 256px;
+    height: 256px;
+}
+
+.sectionTitle{
+    margin-left: 1%;
 }
 
 #footer{
@@ -36,9 +44,6 @@ hr {
     width: 100%;
     overflow: hidden;
     background-color: rgb(128, 128, 128);
-}
-
-#links {
 }
 
 #links > ul {
