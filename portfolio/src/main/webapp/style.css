@@ -32,6 +32,22 @@ hr {
     height: 256px;
 }
 
+#body{
+    font-size: 22px
+}
+
+#quote{
+    
+}
+.section > ul {
+    margin-left: 4%;
+    padding: 0.1%;
+}
+
+.section > ul > li{
+    margin-bottom: 0.5%
+}
+
 .sectionTitle{
     margin-left: 1%;
 }
