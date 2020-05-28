@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <title>Andrew's Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
@@ -31,22 +30,26 @@
             </div>
             <hr/>
 
-            <div class="section">
-                <h2 class="sectionTitle">My interests</h2>
-                <ul>
-                    <li>
-                        <code>C o d e ! </code>
-                    </li>
-                    <li>Philosophy and history!</li>
-                    <li>Board Games!</li>
-                </ul>
+            <div class="section" id="interests">
+                <div class="sectionContentWrapper">
+                    <h2 class="sectionTitle">My interests</h2>
+                    <ul>
+                        <li displayKey="philosophy">Philosophy and history!</li>
+                        <li displayKey="boardGames">Board Games!</li>
+                        <li displayKey="movies">Movies!</li>
+                        <li displayKey="tvShows">TV Shows!</li>
+                    </ul>
+                </div>
+                <div class="sectionPopup" id="interestsPopup">
+                    gg
+                </div>
             </div>
             <hr/>
 
             <div class="section">
                 <h2 class="sectionTitle">My hobbies</h2>
                 <ul>
-                    <li>Gaming - LOL, Stardew Valley. Pokemon</li>
+                    <li>Gaming</li>
                     <li>Running</li>
                     <li>Reading</li>
                 </ul>
@@ -65,6 +68,9 @@
         </div>
         
         <div id = "footer">
+            <div id="author">
+                <a href="mailto:andrewwiede@google.com">andrewwiede@</a>
+            </div>
             <div id="links">
                 <ul>
                     <li>
@@ -87,4 +93,5 @@
         </div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
