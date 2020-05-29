@@ -1,100 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Roboto font link -->  
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <!-- Arvo font link -->
-    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Andrew's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="content">
-        <div id="header">
-            <div id="avatarImg">
-                <img src="/images/avatarAndrew.jpeg" alt="Avatar" id="avatar">
+
+<head>
+	<!-- Roboto font link -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<!-- Arvo font link -->
+	<link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Andrew's Portfolio</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="content">
+		<div id="header">
+			<div id="avatarImg">
+				<img src="/images/avatarAndrew.jpeg" alt="Avatar" id="avatar">
             </div>
 
-            <div id="title">
-                <h1>Andrew Wiedenmann</h1>
-            </div>
-        </div>
-
-        <div id="body">
-            <hr/>
-            <div class="section" id="quote">
-                ... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
-                have  extinguishes even the fiery impulse for improvement. <br/>
+				<div id="title">
+					<h1>Andrew Wiedenmann</h1>
+				</div>
+			</div>
+			<div id="sidenav">
+				<a href="#">Interests</a>
+				<a href="#">Hobbies</a>
+				<a href="#">Skills</a>
+			</div>
+			<div id="body">
+				<div class="section" id="quote">
+					... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
+					have extinguishes even the fiery impulse for improvement. <br/>
                 -Friedrich Schiller
             </div>
-            <hr/>
 
-            <div class="section" id="interests">
-                <div class="sectionContentWrapper">
-                    <h2 class="sectionTitle">My interests</h2>
-                    <ul>
-                        <li displayKey="philosophy">Philosophy and history!</li>
-                        <li displayKey="boardGames">Board Games!</li>
-                        <li displayKey="movies">Movies!</li>
-                        <li displayKey="tvShows">TV Shows!</li>
-                        <li displayKey="music">Music!</li>
-                    </ul>
-                </div>
-                <div class="sectionPopup" id="interestsPopup"></div>
-            </div>
-            <hr/>
+					<div class="section">
+						<div class="sectionTitle">
+							<h2>My interests</h2>
+						</div>
+						<button type="button" class="collapsible">Music!</button>
+						<div class="collapsibleContent">
+							<p>Top 5: Dunno - Mac Miller, Summerhouse - Kota the Friend, Fishing for Fishies - King
+								Gizzard, Volcano - Jimmy Buffett, Woods - Bon Iver</p>
+						</div>
+						<button type="button" class="collapsible">Philosophy and History!</button>
+						<div class="collapsibleContent">
+							<p>Right now, I'm reading 'On the Aesthetic Education of Man' by Friedrich Schiller. It's
+								where I found the quote at the top of the page.</p>
+						</div>
+						<button type="button" class="collapsible">Movies!</button>
+						<div class="collapsibleContent">
+							<p>I have been on a horror movie kick recently - I just watched Hush, The Ring, and
+								Netflix's The Platform</p>
+						</div>
+						<button type="button" class="collapsible">TV Shows!</button>
+						<div class="collapsibleContent">
+							<p>I enjoy Parks and Rec, M*A*S*H, King of the Hill, and I recently started watching Aziz
+								Ansari's Master of None"</p>
+						</div>
+					</div>
 
-            <div class="section" id="hobbies">
-                <div class="sectionContentWrapper">
-                    <h2 class="sectionTitle">My hobbies</h2>
-                    <ul>
-                        <li displayKey="drones">Drones</li>
-                    </ul>
-                </div>
-                <div class="sectionPopup" id="hobbiesPopup"></div>
-            </div>
-            <hr/>
+					<div class="section">
+						<div class="sectionTitle">
+							<h2>My Hobbies</h2>
+						</div>
+						<button type="button" class="collapsible">Drones!</button>
+						<div class="collapsibleContent">
+							<p>On campus, I am a research assistant to a PhD student working on drone swarms. During the
+								school year, I work about 10-15 hours a week in the lab coding, gathering data, or
+								helping with data visualization. I am also a member of my school's UAV robotics club,
+								where I work mostly with control systems</p>
+						</div>
+						<button type="button" class="collapsible">Video Games!</button>
+						<div class="collapsibleContent">
+							<p>I play a lot of League of Legends and some CS:GO and Apex Legends. I have also been
+								playing Stardew Valley and Pokemon Shield</p>
+						</div>
+					</div>
 
-            <div class="section" id="skills">
-                <div class="sectionContentWrapper">
-                    <h2 class="sectionTitle">My Skills</h2>
-                    <ul>
-                        <li displayKey="coding">C++, Java, python</li>
-                        <li displayKey="machineLearning">Tensorflow</li>
-                        <li displayKey="webDev">CSS HTML JS &#128548&#128548&#128548</li>
-                    </ul>
-                </div>
-                <div class="sectionPopup" id="skillsPopup"></div>
-            </div>
-            <hr/>
-        </div>
-        
-        <div id = "footer">
-            <div id="author">
-                <a href="mailto:andrewwiede@google.com">andrewwiede@</a>
-            </div>
-            <div id="links">
-                <ul>
-                    <li>
-                        <a href="https://www.linkedin.com/in/andrew-wiedenmann">LinkedIn</a>
-                    </li>
-                    <li>
-                        &#8226
-                    </li>
-                    <li>
-                       <a href="https://github.com/andy7809/">Github</a> 
-                    </li>
-                    <li>
-                        &#8226
-                    </li>
-                    <li>
-                        <a href="https://stackoverflow.com/users/12732865/andrew-wiedenmann">StackOverflow</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-  </body>
-  <script src="script.js"></script>
+					<div class="section">
+						<div class="sectionTitle">
+							<h2>My Skills</h2>
+						</div>
+						<button type="button" class="collapsible">C++, Java, python</button>
+						<div class="collapsibleContent">
+							<p>I have taken two college classes in Java about algorithms and data structures. In my work
+								as a research assistant, I code in C++ and python.</p>
+						</div>
+						<button type="button" class="collapsible">Tensorflow</button>
+						<div class="collapsibleContent">
+							<p>Recently, I have been learning tensorflow to apply it to my research project.</p>
+						</div>
+						<button type="button" class="collapsible">CSS HTML Javascript &#128548&#128548&#128548</button>
+						<div class="collapsibleContent">
+							<p>And, as part of this project, I learned HTML, CSS and Javascript</p>
+						</div>
+					</div>
+				</div>
+				<div id="footer">
+					<div id="author">
+						<a href="mailto:andrewwiede@google.com">andrewwiede@</a>
+					</div>
+					<div id="links">
+						<ul>
+							<li>
+								<a href="https://www.linkedin.com/in/andrew-wiedenmann">LinkedIn</a>
+							</li>
+							<li>
+								&#8226
+							</li>
+							<li>
+								<a href="https://github.com/andy7809/">Github</a>
+							</li>
+							<li>
+								&#8226
+							</li>
+							<li>
+								<a href="https://stackoverflow.com/users/12732865/andrew-wiedenmann">StackOverflow</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+</body>
+<script src="script.js"></script>
 </html>
