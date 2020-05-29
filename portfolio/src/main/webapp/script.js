@@ -18,12 +18,11 @@ popupContentMap.set("boardGames", BOARD_GAMES_STR_CONTENT);
 popupContentMap.set("movies", MOVIES_STR_CONTENT);
 popupContentMap.set("tvShows", TV_SHOWS_STR_CONTENT);
 popupContentMap.set("music", MUSIC_STR_CONTENT);
-
 popupContentMap.set("drones", DRONES_STR_CONTENT);
-
 popupContentMap.set("coding", CODING_STR_CONTENT);
 popupContentMap.set("machineLearning", MACHINE_LEARNING_STR_CONTENT);
 popupContentMap.set("webDev", WEB_DEV_STR_CONTENT);
+
 document.addEventListener("click", (event) => respondToEvent(event));
 
 function respondToEvent(event){
