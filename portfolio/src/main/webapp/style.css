@@ -21,7 +21,7 @@ html, body {
     padding: 1.5%;
 }
 
-#title{
+#title {
     margin-top: auto;
     margin-left: 0.75%;
     font-size: 30px;
@@ -34,28 +34,28 @@ html, body {
     height: 256px;
 }
 
-#body{
+#body {
     font-size: 22px
 }
 
-#quote{
+#quote {
     text-align: center;
     font-family: 'Arvo', serif;
     padding: 1%;
     font-size: 30px;
 }
 
-.section{
+.section {
     display: flex;
     padding: 1%;
 }
 
-.sectionContentWrapper{
+.sectionContentWrapper {
     flex: 1;
     margin-right: 5%;
 }
 
-.sectionTitle{
+.sectionTitle {
     font-size: 30px;
 }
 
@@ -68,7 +68,7 @@ html, body {
     visibility: hidden;
 }
 
-#footer{
+#footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -78,18 +78,18 @@ html, body {
     background-color: rgb(128, 128, 128);
 }
 
-#author{
+#author {
     text-align: center;
     font-size: 20px;
     margin: 15px
 }
 
-#author > a:link{
+#author > a:link {
     text-decoration: none;
     color: black;
 }
 
-#author > a:hover{
+#author > a:hover {
     text-decoration: underline;
     color: black;
 }
