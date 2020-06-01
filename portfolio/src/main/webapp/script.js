@@ -14,8 +14,6 @@ for (i = 0; i < coll.length; i++) {
 }
 
 function respondToClick(){
-    // invert active (active -> inactive or inactive -> inactive)
-    this.classList.toggle("active");
     let content = this.nextElementSibling;
     // If showing, unshow. Else, if not showing, show
     if (content.style.display === "block") {
