@@ -34,7 +34,9 @@
 
 #body {
     font-size: 22px;
+    margin-left: 250px;
 }
+
 .collapsible {
     background-color: #9C89B8;
     color: #F0E6EF;
@@ -44,14 +46,14 @@
     border: none;
     text-align: center;
     outline: none;
+    margin-left: 50px;
     font-size: 20px;
     border-bottom: 1px #252323 solid;
-    margin-left: 50px;
 }
 
 .collapsibleContent {
     padding: 0 18px;
-    width: 73.47%;
+    width: 72.95%;
     display: none;
     overflow: hidden;
     background-color: #73648a;
@@ -65,12 +67,13 @@
     color: rgb(240, 230, 239);
     padding-bottom: 5%;
 }
+
 #footer {
     position: fixed;
     left: 0;
     bottom: 0;
     height: 7%;
-    width: 99.1%;
+    width: 100%;
     overflow: hidden;
     background-color: rgb(128, 128, 128);
 }
