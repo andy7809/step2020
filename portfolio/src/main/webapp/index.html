@@ -1,18 +1,109 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Roboto font link -->  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <!-- Arvo font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Andrew's Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
+    <!-- Wrapper for all content -->
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+        <!-- Wrapper for header items -->
+        <div id="header">
+            <div id="avatarImg">
+                <img src="/images/avatarAndrew.jpeg" alt="Avatar" id="avatar">
+            </div>
+
+            <div id="title">
+                <h1>Andrew Wiedenmann</h1>
+            </div>
+        <!-- END header -->
+        </div>
+        <!-- Wrapper for all body items -->
+        <div id="body">
+            <hr/>
+            <!-- Body is separated into multiple divs with the commone css class="section" styling -->
+            <div class="section" id="quote">
+                ... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
+                have  extinguishes even the fiery impulse for improvement. <br/>
+                -Friedrich Schiller
+            </div>
+            <hr/>
+
+            <div class="section" id="interests">
+                <!-- Most sections have two parts: content and a popup div. The content is all of the things that come pre-rendered in the section -->
+                <div class="sectionContentWrapper">
+                    <h2 class="sectionTitle">My interests</h2>
+                    <ul>
+                        <li displayKey="philosophy">Philosophy and history!</li>
+                        <li displayKey="boardGames">Board Games!</li>
+                        <li displayKey="movies">Movies!</li>
+                        <li displayKey="tvShows">TV Shows!</li>
+                        <li displayKey="music">Music!</li>
+                    </ul>
+                </div>
+                <!-- This empty div is the target for content later added by a javascript function-->
+                <div class="sectionPopup" id="interestsPopup"></div>
+            </div>
+            <hr/>
+
+            <div class="section" id="hobbies">
+                <div class="sectionContentWrapper">
+                    <h2 class="sectionTitle">My hobbies</h2>
+                    <ul>
+                        <li displayKey="drones">Drones</li>
+                    </ul>
+                </div>
+                <div class="sectionPopup" id="hobbiesPopup"></div>
+            </div>
+            <hr/>
+
+            <div class="section" id="skills">
+                <div class="sectionContentWrapper">
+                    <h2 class="sectionTitle">My Skills</h2>
+                    <ul>
+                        <li displayKey="coding">C++, Java, python</li>
+                        <li displayKey="machineLearning">Tensorflow</li>
+                        <li displayKey="webDev">CSS HTML JS &#128548; &#128548; &#128548;</li>
+                    </ul>
+                </div>
+                <div class="sectionPopup" id="skillsPopup"></div>
+            </div>
+            <hr/>
+        <!-- END body-->
+        </div>
+        <!-- Wrapper for all footer items -->
+        <div id = "footer">
+            <div id="author">
+                <a href="mailto:andrewwiede@google.com">andrewwiede@</a>
+            </div>
+            <div id="links">
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/andrew-wiedenmann">LinkedIn</a>
+                    </li>
+                    <li>
+                        &#8226;
+                    </li>
+                    <li>
+                       <a href="https://github.com/andy7809/">Github</a> 
+                    </li>
+                    <li>
+                        &#8226;
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/users/12732865/andrew-wiedenmann">StackOverflow</a>
+                    </li>
+                </ul>
+            </div>
+        <!-- END footer -->
+        </div>
+    <!-- END content -->
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
