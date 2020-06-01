@@ -12,7 +12,9 @@
 </head>
 
 <body>
+	<!-- Wrapper for all content -->
 	<div id="content">
+		<!-- Wrapper for header items -->
 		<div id="header">
 			<div id="avatarImg">
 				<img src="/images/avatarAndrew.jpeg" alt="Avatar" id="avatar">
@@ -27,101 +29,120 @@
 				<a href="#">Hobbies</a>
 				<a href="#">Skills</a>
 			</div>
-			<div id="body">
-				<div class="section" id="quote">
-					... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
-					have extinguishes even the fiery impulse for improvement. <br/>
+        <!-- END header -->
+		</div>
+        <!-- Wrapper for all body items -->
+		<div id="body">
+            <!-- Body is separated into multiple divs with the commone css class="section" styling -->
+			<div class="section" id="quote">
+				... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
+				have extinguishes even the fiery impulse for improvement. <br/>
                 -Friedrich Schiller
             </div>
 
-					<div class="section">
-						<div class="sectionTitle">
-							<h2>My interests</h2>
-						</div>
-						<button type="button" class="collapsible">Music!</button>
-						<div class="collapsibleContent">
-							<p>Top 5: Dunno - Mac Miller, Summerhouse - Kota the Friend, Fishing for Fishies - King
-								Gizzard, Volcano - Jimmy Buffett, Woods - Bon Iver</p>
-						</div>
-						<button type="button" class="collapsible">Philosophy and History!</button>
-						<div class="collapsibleContent">
-							<p>Right now, I'm reading 'On the Aesthetic Education of Man' by Friedrich Schiller. It's
-								where I found the quote at the top of the page.</p>
-						</div>
-						<button type="button" class="collapsible">Movies!</button>
-						<div class="collapsibleContent">
-							<p>I have been on a horror movie kick recently - I just watched Hush, The Ring, and
-								Netflix's The Platform</p>
-						</div>
-						<button type="button" class="collapsible">TV Shows!</button>
-						<div class="collapsibleContent">
-							<p>I enjoy Parks and Rec, M*A*S*H, King of the Hill, and I recently started watching Aziz
-								Ansari's Master of None"</p>
-						</div>
-					</div>
+            <!-- Most sections have two parts: a title and collapsible content -->
+            <!-- interests section -->>
+            <div class="section">
+                <div class="sectionTitle">
+                    <h2>My interests</h2>
+                </div>
+                <!-- Collapsible content has a styled button followed by a div containing some content -->
+                <button type="button" class="collapsible">Music!</button>
+                <div class="collapsibleContent">
+                    <p>Top 5: Dunno - Mac Miller, Summerhouse - Kota the Friend, Fishing for Fishies - King
+                        Gizzard, Volcano - Jimmy Buffett, Woods - Bon Iver</p>
+                </div>
+                <button type="button" class="collapsible">Philosophy and History!</button>
+                <div class="collapsibleContent">
+                    <p>Right now, I'm reading 'On the Aesthetic Education of Man' by Friedrich Schiller. It's
+                        where I found the quote at the top of the page.</p>
+                </div>
+                <button type="button" class="collapsible">Movies!</button>
+                <div class="collapsibleContent">
+                    <p>I have been on a horror movie kick recently - I just watched Hush, The Ring, and
+                        Netflix's The Platform</p>
+                </div>
+                <button type="button" class="collapsible">TV Shows!</button>
+                <div class="collapsibleContent">
+                    <p>I enjoy Parks and Rec, M*A*S*H, King of the Hill, and I recently started watching Aziz
+                        Ansari's Master of None"</p>
+                </div>
+            <!-- END interests section -->
+            </div>
 
-					<div class="section">
-						<div class="sectionTitle">
-							<h2>My Hobbies</h2>
-						</div>
-						<button type="button" class="collapsible">Drones!</button>
-						<div class="collapsibleContent">
-							<p>On campus, I am a research assistant to a PhD student working on drone swarms. During the
-								school year, I work about 10-15 hours a week in the lab coding, gathering data, or
-								helping with data visualization. I am also a member of my school's UAV robotics club,
-								where I work mostly with control systems</p>
-						</div>
-						<button type="button" class="collapsible">Video Games!</button>
-						<div class="collapsibleContent">
-							<p>I play a lot of League of Legends and some CS:GO and Apex Legends. I have also been
-								playing Stardew Valley and Pokemon Shield</p>
-						</div>
-					</div>
+            <!-- hobbies section -->
+            <div class="section">
+                <div class="sectionTitle">
+                    <h2>My Hobbies</h2>
+                </div>
+                <button type="button" class="collapsible">Drones!</button>
+                <div class="collapsibleContent">
+                    <p>On campus, I am a research assistant to a PhD student working on drone swarms. During the
+                        school year, I work about 10-15 hours a week in the lab coding, gathering data, or
+                        helping with data visualization. I am also a member of my school's UAV robotics club,
+                        where I work mostly with control systems</p>
+                </div>
+                <button type="button" class="collapsible">Video Games!</button>
+                <div class="collapsibleContent">
+                    <p>I play a lot of League of Legends and some CS:GO and Apex Legends. I have also been
+                        playing Stardew Valley and Pokemon Shield</p>
+                </div>
+            <!-- END hobbies section -->
+            </div>
 
-					<div class="section">
-						<div class="sectionTitle">
-							<h2>My Skills</h2>
-						</div>
-						<button type="button" class="collapsible">C++, Java, python</button>
-						<div class="collapsibleContent">
-							<p>I have taken two college classes in Java about algorithms and data structures. In my work
-								as a research assistant, I code in C++ and python.</p>
-						</div>
-						<button type="button" class="collapsible">Tensorflow</button>
-						<div class="collapsibleContent">
-							<p>Recently, I have been learning tensorflow to apply it to my research project.</p>
-						</div>
-						<button type="button" class="collapsible">CSS HTML Javascript &#128548&#128548&#128548</button>
-						<div class="collapsibleContent">
-							<p>And, as part of this project, I learned HTML, CSS and Javascript</p>
-						</div>
-					</div>
-				</div>
-				<div id="footer">
-					<div id="author">
-						<a href="mailto:andrewwiede@google.com">andrewwiede@</a>
-					</div>
-					<div id="links">
-						<ul>
-							<li>
-								<a href="https://www.linkedin.com/in/andrew-wiedenmann">LinkedIn</a>
-							</li>
-							<li>
-								&#8226
-							</li>
-							<li>
-								<a href="https://github.com/andy7809/">Github</a>
-							</li>
-							<li>
-								&#8226
-							</li>
-							<li>
-								<a href="https://stackoverflow.com/users/12732865/andrew-wiedenmann">StackOverflow</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+            <!-- skills section -->
+            <div class="section">
+                <div class="sectionTitle">
+                    <h2>My Skills</h2>
+                </div>
+                <button type="button" class="collapsible">C++, Java, python</button>
+                <div class="collapsibleContent">
+                    <p>I have taken two college classes in Java about algorithms and data structures. In my work
+                        as a research assistant, I code in C++ and python.</p>
+                </div>
+                <button type="button" class="collapsible">Tensorflow</button>
+                <div class="collapsibleContent">
+                    <p>Recently, I have been learning tensorflow to apply it to my research project.</p>
+                </div>
+                <button type="button" class="collapsible">CSS HTML Javascript &#128548; &#128548; &#128548;</button>
+                <div class="collapsibleContent">
+                    <p>And, as part of this project, I learned HTML, CSS and Javascript</p>
+                </div>
+            <!-- END skills section -->
+            </div>
+        <!-- END body -->
+		</div>
+        <!-- Wrapper for footer items -->
+        <div id="footer">
+            <!-- Give a link to email me -->
+            <div id="author">
+                <a href="mailto:andrewwiede@google.com">andrewwiede@</a>
+            </div>
+            <!-- Footer social media links -->
+            <div id="links">
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/andrew-wiedenmann">LinkedIn</a>
+                    </li>
+                    <li>
+                        &#8226;
+                    </li>
+                    <li>
+                        <a href="https://github.com/andy7809/">Github</a>
+                    </li>
+                    <li>
+                        &#8226;
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/users/12732865/andrew-wiedenmann">StackOverflow</a>
+                    </li>
+                </ul>
+            <!-- END social media links -->
+            </div>
+        <!-- END footer --> 
+        </div>
+    <!-- END content -->
+    </div>
 </body>
 <script src="script.js"></script>
 </html>
