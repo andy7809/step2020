@@ -1,46 +1,24 @@
-// A simple script to update the content of an html element with facts about me
-// depending on which element is clicked by a user
-// Author: Andrew Wiedenmann
+/**
+ A script that adds on click functionality to a set of buttons on my webpage
+ @author Andrew Wiedenmann
+ */
 "use strict";
 
-// A map of displayKey values mapped to html string content. When an element is clicked, the string corresponding to that
-// displayKey value is displayed on the webpage
-let popupContentMap = new Map();
+// Get all buttons. coll is an array of html elements
+let coll = document.getElementsByClassName("collapsible");
+let i;
 
-const PHILOSOPHY_STR_CONTENT = "Right now, I'm reading  'On the Aesthetic Education of Man' by Friedrich Schiller. It's where I found the quote at the top of the page.";
-const BOARD_GAMES_STR_CONTENT = "In quarantine, I've been playing Betrayal and Catan recently, which are both table-top games. My favorite casual games are Codenames and Blokus - both have online versions, so if you ever want to play a game, let me know!";
-const MOVIES_STR_CONTENT = "I have been on a horror movie kick recently - I just watched Hush, The Ring, and Netflix's The Platform";
-const TV_SHOWS_STR_CONTENT = "I enjoy Parks and Rec, M*A*S*H, King of the Hill, and I recently started watching Aziz Ansari's Master of None";
-const MUSIC_STR_CONTENT = "Top 5: Dunno - Mac Miller, Summerhouse - Kota the Friend, Fishing for Fishies - King Gizzard, Volcano - Jimmy Buffett, Woods - Bon Iver";
-const DRONES_STR_CONTENT = "On campus, I am a research assistant to a PhD student working on drone swarms. During the school year, I work about 10-15 hours a week in the lab coding, gathering data, or helping with data visualization. I am also a member of my school's UAV robotics club, where I work mostly with control systems";
-const CODING_STR_CONTENT = "I have taken two college classes in Java about algorithms and data structures. In my work as a research assistant, I code in C++ and python.";
-const WEB_DEV_STR_CONTENT = "And, as part of this project, I learned HTML, CSS and Javascript";
-const MACHINE_LEARNING_STR_CONTENT = "Recently, I have been learning tensorflow to apply it to my research project.";
-
-popupContentMap.set("philosophy", PHILOSOPHY_STR_CONTENT);
-popupContentMap.set("boardGames", BOARD_GAMES_STR_CONTENT);
-popupContentMap.set("movies", MOVIES_STR_CONTENT);
-popupContentMap.set("tvShows", TV_SHOWS_STR_CONTENT);
-popupContentMap.set("music", MUSIC_STR_CONTENT);
-popupContentMap.set("drones", DRONES_STR_CONTENT);
-popupContentMap.set("coding", CODING_STR_CONTENT);
-popupContentMap.set("machineLearning", MACHINE_LEARNING_STR_CONTENT);
-popupContentMap.set("webDev", WEB_DEV_STR_CONTENT);
-
-document.addEventListener("click", (event) => respondToEvent(event));
-
-/**
-    A function to respond to a click event. On click, find the element that was clicked's display key and display
-    the corresponding message in the corresponding popupDiv.
- */
-function respondToEvent(event) {
-    const clickDisplayKey = event.target.getAttribute("displayKey");
-    // If the clicked element has no displayKey, return
-    if (clickDisplayKey == null) {
-        return;
-    }
-    const sectionId = event.target.parentNode.parentNode.parentNode.id;
-    let popupDiv = document.getElementById(sectionId.concat("Popup"));
-    popupDiv.innerHTML = popupContentMap.get(clickDisplayKey);
-    popupDiv.style.visibility = "visible";
+for (i = 0; i < coll.length; i++) {
+    // Add onclick functionality to every item in coll
+    coll[i].addEventListener("click", function() {
+        // invert active (active -> inactive or inactive -> inactive)
+        this.classList.toggle("active");
+        let content = this.nextElementSibling;
+        // If showing, unshow. Else, if not showing, show
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
 }
