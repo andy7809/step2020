@@ -7,19 +7,19 @@
 }
 
 #author {
-  text-align: center;
   font-size: 20px;
   margin: 15px;
+  text-align: center;
 }
 
 #author > a:link {
-  text-decoration: none;
   color: #252323;
+  text-decoration: none;
 }
 
 #author > a:hover {
-  text-decoration: underline;
   color: #252323;
+  text-decoration: underline;
 }
 
 #author > a:visited {
@@ -28,8 +28,8 @@
 
 #avatar {
   border-radius: 50%;
-  width: 256px;
   height: 256px;
+  width: 256px;
 }
 
 #body {
@@ -39,50 +39,50 @@
 
 .collapsible {
   background-color: #9C89B8;
+  border: none;
+  border-bottom: 1px #252323 solid;
   color: #F0E6EF;
   cursor: pointer;
-  padding: 18px;
-  width: 75%;
-  border: none;
-  text-align: center;
-  outline: none;
-  margin-left: 50px;
   font-size: 20px;
-  border-bottom: 1px #252323 solid;
+  margin-left: 50px;
+  outline: none;
+  padding: 18px;
+  text-align: center;
+  width: 75%;
 }
 
 .collapsible-txt {
-  width: 75%;
-  text-align: center;
-  display: none;
-  overflow: hidden;
   background-color: #73648a;
-  margin-left: 50px;
   border-bottom: 1px #252323 solid;
+  display: none;
+  margin-left: 50px;
+  overflow: hidden;
+  text-align: center;
+  width: 75%;
 }
 
 #content {
   background-color: rgb(37, 35, 35);
-  font-family: 'Roboto', sans-serif;
   color: rgb(240, 230, 239);
+  font-family: 'Roboto', sans-serif;
   padding-bottom: 5%;
 }
 
 #footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 7%;
-  width: 100%;
-  overflow: hidden;
-  color: #252323;
   background-color: rgb(128, 128, 128);
+  bottom: 0;
+  color: #252323;
+  height: 7%;
+  left: 0;
+  overflow: hidden; 
+  position: fixed;
+  width: 100%; 
 }
 
 #header {
   display: flex;
-  padding: 1.5%;
   margin-left: 200px;
+  padding: 1.5%;
 }
 
 html, body {
@@ -91,25 +91,24 @@ html, body {
 }
 
 #links > ul {
-  justify-content: center;
   display: flex;
+  justify-content: center;
 }
 
-/* All li children of ul in #links */
 #links > ul > li {
   display: inline-block;
   padding: 0.3%;
 }
 
 #links > ul > li > a:link {
-  text-decoration: none;
-  cursor: pointer;
   color: #252323;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 #links > ul > li > a:hover {
-  text-decoration: underline;
   color: #252323;
+  text-decoration: underline;
 }
 
 #links > ul > li > a:visited {
@@ -117,45 +116,45 @@ html, body {
 }
 
 #quote {
-  text-align: center;
   display: inline-block;
   font-family: 'Arvo', serif;
-  padding: 1%;
   font-size: 30px;
+  padding: 1%;
+  text-align: center;
 }
 
 .section {
-  padding: 1%;
   margin: auto;
+  padding: 1%;
 }
 
 .section-title {
-  margin-top: 20px;
-  font-size: 30px;
   background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
-  padding: 5px;
   border-radius: 5px;
+  font-size: 30px;
   margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 5px;
 }
 
 #sidenav {
-  height: 93%;
-  width: 200px;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: #b8bedd;
+  height: 93%;
+  left: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  position: fixed;
+  top: 0;
+  width: 200px;
 }
 
 #sidenav a {
+  color: #252323;
+  cursor: pointer;
+  display: block;
+  font-size: 25px;
   padding: 6px 6px 6px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #252323;
-  display: block;
-  cursor: pointer;
 }
 
 #sidenav a:hover {
@@ -163,8 +162,8 @@ html, body {
 }
 
 #title {
-  margin-top: auto;
-  margin-left: 0.75%;
-  font-size: 30px;
   flex: 1;
+  font-size: 30px;
+  margin-left: 0.75%;
+  margin-top: auto;
 }
