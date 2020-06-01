@@ -13,6 +13,11 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", respondToClick);
 }
 
+/**
+ Designed to give HTML elements of the collapsible class the ability to respond to click events.
+ Responds to click by toggling the style.display property of the next element sibling in the DOM.
+ @param clickEvent a clickEvent object on a collapsible item
+ */
 function respondToClick(clickEvent){
     //The element that was clicked
     const clickedElement = clickEvent.target;
