@@ -1,170 +1,170 @@
 .active {
-    border: none;
+  border: none;
 }
 
 .active, .collapsible:hover {
-    background-color: #B7ADCF;
+  background-color: #B7ADCF;
 }
 
 #author {
-    text-align: center;
-    font-size: 20px;
-    margin: 15px;
+  text-align: center;
+  font-size: 20px;
+  margin: 15px;
 }
 
 #author > a:link {
-    text-decoration: none;
-    color: #252323;
+  text-decoration: none;
+  color: #252323;
 }
 
 #author > a:hover {
-    text-decoration: underline;
-    color: #252323;
+  text-decoration: underline;
+  color: #252323;
 }
 
 #author > a:visited {
-    color: #252323;
+  color: #252323;
 }
 
 #avatar {
-    border-radius: 50%;
-    width: 256px;
-    height: 256px;
+  border-radius: 50%;
+  width: 256px;
+  height: 256px;
 }
 
 #body {
-    font-size: 22px;
-    margin-left: 250px;
+  font-size: 22px;
+  margin-left: 250px;
 }
 
 .collapsible {
-    background-color: #9C89B8;
-    color: #F0E6EF;
-    cursor: pointer;
-    padding: 18px;
-    width: 75%;
-    border: none;
-    text-align: center;
-    outline: none;
-    margin-left: 50px;
-    font-size: 20px;
-    border-bottom: 1px #252323 solid;
+  background-color: #9C89B8;
+  color: #F0E6EF;
+  cursor: pointer;
+  padding: 18px;
+  width: 75%;
+  border: none;
+  text-align: center;
+  outline: none;
+  margin-left: 50px;
+  font-size: 20px;
+  border-bottom: 1px #252323 solid;
 }
 
 .collapsibleContent {
-    width: 75%;
-    text-align: center;
-    display: none;
-    overflow: hidden;
-    background-color: #73648a;
-    margin-left: 50px;
-    border-bottom: 1px #252323 solid;
+  width: 75%;
+  text-align: center;
+  display: none;
+  overflow: hidden;
+  background-color: #73648a;
+  margin-left: 50px;
+  border-bottom: 1px #252323 solid;
 }
 
 #content {
-    background-color: rgb(37, 35, 35);
-    font-family: 'Roboto', sans-serif;
-    color: rgb(240, 230, 239);
-    padding-bottom: 5%;
+  background-color: rgb(37, 35, 35);
+  font-family: 'Roboto', sans-serif;
+  color: rgb(240, 230, 239);
+  padding-bottom: 5%;
 }
 
 #footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 7%;
-    width: 100%;
-    overflow: hidden;
-    color: #252323;
-    background-color: rgb(128, 128, 128);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 7%;
+  width: 100%;
+  overflow: hidden;
+  color: #252323;
+  background-color: rgb(128, 128, 128);
 }
 
 #header {
-    display: flex;
-    padding: 1.5%;
-    margin-left: 200px;
+  display: flex;
+  padding: 1.5%;
+  margin-left: 200px;
 }
 
 html, body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 #links > ul {
-    justify-content: center;
-    display: flex;
+  justify-content: center;
+  display: flex;
 }
 
 /* All li children of ul in #links */
 #links > ul > li {
-    display: inline-block;
-    padding: 0.3%;
+  display: inline-block;
+  padding: 0.3%;
 }
 
 #links > ul > li > a:link {
-    text-decoration: none;
-    cursor: pointer;
-    color: #252323;
+  text-decoration: none;
+  cursor: pointer;
+  color: #252323;
 }
 
 #links > ul > li > a:hover {
-    text-decoration: underline;
-    color: #252323;
+  text-decoration: underline;
+  color: #252323;
 }
 
 #links > ul > li > a:visited {
-    color: #252323;
+  color: #252323;
 }
 
 #quote {
-    text-align: center;
-    display: inline-block;
-    font-family: 'Arvo', serif;
-    padding: 1%;
-    font-size: 30px;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Arvo', serif;
+  padding: 1%;
+  font-size: 30px;
 }
 
 .section {
-    padding: 1%;
-    margin: auto;
+  padding: 1%;
+  margin: auto;
 }
 
 .sectionTitle {
-    margin-top: 20px;
-    font-size: 30px;
-    background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 30px;
+  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 #sidenav {
-    height: 93%;
-    width: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #b8bedd;
-    overflow-x: hidden;
-    padding-top: 20px;
+  height: 93%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #b8bedd;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
 #sidenav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #252323;
-    display: block;
-    cursor: pointer;
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #252323;
+  display: block;
+  cursor: pointer;
 }
 
 #sidenav a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #title {
-    margin-top: auto;
-    margin-left: 0.75%;
-    font-size: 30px;
-    flex: 1;
+  margin-top: auto;
+  margin-left: 0.75%;
+  font-size: 30px;
+  flex: 1;
 }
