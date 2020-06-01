@@ -1,6 +1,64 @@
-html, body {
-    height: 100%;
-    margin: 0;
+.active{
+    border: none;
+}
+
+.active, .collapsible:hover {
+    background-color: #B7ADCF;
+}
+
+#author{
+    text-align: center;
+    font-size: 20px;
+    margin: 15px
+}
+
+#author > a:link{
+    text-decoration: none;
+    color: #252323;
+}
+
+#author > a:hover{
+    text-decoration: underline;
+    color: #252323;
+}
+
+#author > a:visited{
+    color: #252323;
+}
+
+#avatar {
+    border-radius: 50%;
+    width: 256px;
+    height: 256px;
+}
+
+#body{
+    font-size: 22px;
+    margin-left: 250px;
+}
+
+.collapsible {
+    background-color: #9C89B8;
+    color: #F0E6EF;
+    cursor: pointer;
+    padding: 18px;
+    width: 75%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 1px #252323 solid;
+    margin-left: 50px;
+}
+
+.collapsibleContent {
+    padding: 0 18px;
+    width: 73.47%;
+    display: none;
+    overflow: hidden;
+    background-color: #73648a;
+    margin-left: 50px;
+    border-bottom: 1px #252323 solid;
 }
 
 #content {
@@ -10,10 +68,75 @@ html, body {
     padding-bottom: 5%;
 }
 
+#footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 7%;
+    width: 99.1%;
+    overflow: hidden;
+    background-color: #F0E6EF;
+    color: #252323;
+}
+
 #header {
     display: flex;
     padding: 1.5%;
     margin-left: 200px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#links > ul {
+    justify-content: center;
+    display: flex;
+}
+
+/* All li children of ul in #links */
+#links > ul > li {
+    display: inline-block;
+    padding: 0.3%;
+}
+
+#links > ul > li > a:link{
+    text-decoration: none;
+    cursor: pointer;
+    color: #252323;
+}
+
+#links > ul > li > a:hover{
+    text-decoration: underline;
+    color: #252323;
+}
+
+#links > ul > li > a:visited{
+    color: #252323;
+}
+
+#quote{
+    text-align: center;
+    display: inline-block;
+    font-family: 'Arvo', serif;
+    padding: 1%;
+    font-size: 30px;
+}
+
+.section{
+    display: inline;
+    padding: 1%;
+    margin: auto;
+}
+
+.sectionTitle{
+    margin-top: 20px;
+    font-size: 30px;
+    background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 #sidenav {
@@ -45,128 +168,4 @@ html, body {
     margin-left: 0.75%;
     font-size: 30px;
     flex: 1;
-}
-
-#avatar {
-    border-radius: 50%;
-    width: 256px;
-    height: 256px;
-}
-
-#body{
-    font-size: 22px;
-    margin-left: 250px;
-}
-
-#quote{
-    text-align: center;
-    display: inline-block;
-    font-family: 'Arvo', serif;
-    padding: 1%;
-    font-size: 30px;
-}
-
-.section{
-    display: inline;
-    padding: 1%;
-    margin: auto;
-}
-
-.sectionTitle{
-    margin-top: 20px;
-    font-size: 30px;
-    background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.collapsible {
-    background-color: #9C89B8;
-    color: #F0E6EF;
-    cursor: pointer;
-    padding: 18px;
-    width: 75%;
-    border: none;
-    text-align: center;
-    outline: none;
-    font-size: 20px;
-    border-bottom: 1px #252323 solid;
-    margin-left: 50px;
-}
-
-.active, .collapsible:hover {
-    background-color: #B7ADCF;
-}
-
-.active{
-    border: none;
-}
-
-.collapsibleContent {
-    padding: 0 18px;
-    width: 73.47%;
-    display: none;
-    overflow: hidden;
-    background-color: #73648a;
-    margin-left: 50px;
-    border-bottom: 1px #252323 solid;
-}
-
-#footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 7%;
-    width: 100%;
-    overflow: hidden;
-    background-color: #F0E6EF;
-    color: #252323;
-}
-
-#author{
-    text-align: center;
-    font-size: 20px;
-    margin: 15px
-}
-
-#author > a:link{
-    text-decoration: none;
-    color: #252323;
-}
-
-#author > a:hover{
-    text-decoration: underline;
-    color: #252323;
-}
-
-#author > a:visited{
-    color: #252323;
-}
-
-
-#links > ul {
-    justify-content: center;
-    display: flex;
-}
-
-/* All li children of ul in #links */
-#links > ul > li {
-    display: inline-block;
-    padding: 0.3%;
-}
-
-#links > ul > li > a:link{
-    text-decoration: none;
-    cursor: pointer;
-    color: #252323;
-}
-
-#links > ul > li > a:hover{
-    text-decoration: underline;
-    color: #252323;
-}
-
-#links > ul > li > a:visited{
-    color: #252323;
 }
