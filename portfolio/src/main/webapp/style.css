@@ -51,7 +51,7 @@
   border-bottom: 1px #252323 solid;
 }
 
-.collapsibleContent {
+.collapsible-txt {
   width: 75%;
   text-align: center;
   display: none;
@@ -129,7 +129,7 @@ html, body {
   margin: auto;
 }
 
-.sectionTitle {
+.section-title {
   margin-top: 20px;
   font-size: 30px;
   background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
