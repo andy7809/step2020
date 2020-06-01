@@ -1,10 +1,10 @@
-//A simple script to update the content of an html element with facts about me
-//depending on which element is clicked by a user
-//Author: Andrew Wiedenmann
+// A simple script to update the content of an html element with facts about me
+// depending on which element is clicked by a user
+// Author: Andrew Wiedenmann
 "use strict";
 
-//A map of displayKey values mapped to html string content. When an element is clicked, the string corresponding to that
-//displayKey value is displayed on the webpage
+// A map of displayKey values mapped to html string content. When an element is clicked, the string corresponding to that
+// displayKey value is displayed on the webpage
 let popupContentMap = new Map();
 
 const PHILOSOPHY_STR_CONTENT = "Right now, I'm reading  'On the Aesthetic Education of Man' by Friedrich Schiller. It's where I found the quote at the top of the page.";
@@ -35,7 +35,7 @@ document.addEventListener("click", (event) => respondToEvent(event));
  */
 function respondToEvent(event) {
     const clickDisplayKey = event.target.getAttribute("displayKey");
-    //If the clicked element has no displayKey, return
+    // If the clicked element has no displayKey, return
     if (clickDisplayKey == null) {
         return;
     }
