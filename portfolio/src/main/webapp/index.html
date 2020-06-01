@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- Wrapper for all content -->
     <div id="content">
+        <!-- Wrapper for header items -->
         <div id="header">
             <div id="avatarImg">
                 <img src="/images/avatarAndrew.jpeg" alt="Avatar" id="avatar">
@@ -19,10 +21,12 @@
             <div id="title">
                 <h1>Andrew Wiedenmann</h1>
             </div>
+        <!-- END header -->
         </div>
-
+        <!-- Wrapper for all body items -->
         <div id="body">
             <hr/>
+            <!-- Body is separated into multiple divs with the commone css class="section" styling -->
             <div class="section" id="quote">
                 ... physical bonds lace themselves ever tighter around us, such that out fear of losing what we
                 have  extinguishes even the fiery impulse for improvement. <br/>
@@ -31,6 +35,7 @@
             <hr/>
 
             <div class="section" id="interests">
+                <!-- Most sections have two parts: content and a popup div. The content is all of the things that come pre-rendered in the section -->
                 <div class="sectionContentWrapper">
                     <h2 class="sectionTitle">My interests</h2>
                     <ul>
@@ -41,6 +46,7 @@
                         <li displayKey="music">Music!</li>
                     </ul>
                 </div>
+                <!-- This empty div is the target for content later added by a javascript function-->
                 <div class="sectionPopup" id="interestsPopup"></div>
             </div>
             <hr/>
@@ -68,8 +74,9 @@
                 <div class="sectionPopup" id="skillsPopup"></div>
             </div>
             <hr/>
+        <!-- END body-->
         </div>
-        
+        <!-- Wrapper for all footer items -->
         <div id = "footer">
             <div id="author">
                 <a href="mailto:andrewwiede@google.com">andrewwiede@</a>
@@ -93,7 +100,9 @@
                     </li>
                 </ul>
             </div>
+        <!-- END footer -->
         </div>
+    <!-- END content -->
     </div>
   </body>
   <script src="script.js"></script>
