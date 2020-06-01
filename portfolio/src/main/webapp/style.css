@@ -52,8 +52,8 @@
 }
 
 .collapsibleContent {
-    padding: 0 18px;
-    width: 72.95%;
+    width: 75%;
+    text-align: center;
     display: none;
     overflow: hidden;
     background-color: #73648a;
@@ -125,7 +125,6 @@ html, body {
 }
 
 .section {
-    display: inline;
     padding: 1%;
     margin: auto;
 }
