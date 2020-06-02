@@ -22,6 +22,7 @@
 				<a href="#">Interests</a>
 				<a href="#">Hobbies</a>
 				<a href="#">Skills</a>
+        <a href="#">Comments</a>
 			</div>
 		</div> <!-- END header -->
 		<div id="body"> <!-- Wrapper for all body items -->
@@ -94,12 +95,31 @@
 					<p>And, as part of this project, I learned HTML, CSS and Javascript</p>
 				</div>
 			</div> <!-- END skills section -->
+      <div class="section"> <!-- form section -->
+          <div class="section-title">
+					  <h2>Comments</h2>
+				  </div>
+          <form> <!-- I followed a tutorial here: https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form for creating and styling an HTML form -->
+            <ul>
+              <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" />
+              </li>
+              <li>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_email" />
+              </li>
+              <li>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+              </li>
+            </ul>
+          </form>
+      </div> <!-- END form section -->
 		</div> <!-- END body -->
 		<div id="footer"> <!-- Wrapper for footer items -->
 			<!-- Give a link to email me -->
 			<div id="author">
-        <!-- Message Div for JS fetch -->
-        <div id="msg"></div>
 				<a href="mailto:andrewwiede@google.com">andrewwiede@</a>
 			</div>			
 			<div id="links"> <!-- Footer social media links -->

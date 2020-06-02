@@ -31,15 +31,3 @@ function respondToClick(clickEvent) {
     content.style.display = "block";
   }
 }
-
-document.addEventListener("DOMContentLoaded", respondToLoad);
-
-async function respondToLoad(domLoadEvent) {
-  console.log('Fetching message.');
-  const response = await fetch('/data');
-  console.log("streaming message");
-  const message = await response.text();
-  console.log(message);
-  document.getElementById(MSG_TARGET).innerText = message;
-  console.log(document.getElementById(MSG_TARGET))
-}
