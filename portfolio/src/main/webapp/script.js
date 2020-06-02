@@ -3,6 +3,7 @@
  @author Andrew Wiedenmann
  */
 "use strict";
+const MSG_TARGET = "msg";
 
 // Get all buttons. coll is an array of html elements
 let coll = document.getElementsByClassName("collapsible");
@@ -29,4 +30,16 @@ function respondToClick(clickEvent) {
   } else {
     content.style.display = "block";
   }
+}
+
+document.addEventListener("DOMContentLoaded", respondToLoad);
+
+async function respondToLoad(domLoadEvent) {
+  console.log('Fetching message.');
+  const response = await fetch('/data');
+  console.log("streaming message");
+  const message = await response.text();
+  console.log(message);
+  document.getElementById(MSG_TARGET).innerText = message;
+  console.log(document.getElementById(MSG_TARGET))
 }
