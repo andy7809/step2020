@@ -14,6 +14,11 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Entity;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +28,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.stream.Collectors;
+import org.json.JSONObject;
+import com.google.sps.servlets.Comment;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -32,12 +39,18 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    msgArray.add("Msg #1");
-    msgArray.add("Msg #2");
-    msgArray.add("msg #3");
+    Query query = new Query("Comment");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
 
     response.setContentType("text/html;");
-    response.getWriter().println(objToJson(msgArray));
+    List<Comment> comments = new ArrayList<>();
+    for (Entity entity : results.asIterable()) {
+      String content = (String) entity.getProperty("content");
+      comments.add(new Comment(content));
+    }
+    response.setContentType("application/json;");
+    response.getWriter().println("{\"commentList\": " + objToJson(comments) + "}");
   }
 
   private static String objToJson(Object o){
@@ -47,13 +60,17 @@ public class DataServlet extends HttpServlet {
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {    
     try{
       String test = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-      System.out.println(test);
+      JSONObject obj = new JSONObject(test);
+      Entity commentEntity = new Entity("Comment");
+      commentEntity.setProperty("content", obj.get("comment"));
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(commentEntity);
+      response.sendRedirect("/index.html");
     } catch(Exception e){
       e.printStackTrace();
     }
-    request.getParameter("text");
   }
 }

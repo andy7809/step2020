@@ -65,6 +65,16 @@
   width: 75%;
 }
 
+.comment {
+  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  padding: 5px;
+  text-align: center;
+  width: 75%;
+}
+
 #content {
   background-color: rgb(37, 35, 35);
   color: rgb(240, 230, 239);

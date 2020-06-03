@@ -4,7 +4,7 @@
  */
 "use strict";
 const POST_TARGET = "post";
-const COMMENT_TARGET = "comment";
+const COMMENT_CONTENT = "comment";
 
 // Get all collapsibles. coll is an array of html elements
 let coll = document.getElementsByClassName("collapsible");
@@ -36,10 +36,30 @@ function collapsibleRespondToClick(clickEvent) {
 let submitButton = document.getElementById(POST_TARGET);
 submitButton.addEventListener("click", postComment);
 
-function postComment(clickEvent){
-  const data = {'cont': document.getElementById(COMMENT_TARGET).value};
+function postComment() {
+  const commentVal = document.getElementById(COMMENT_CONTENT).value
+  const data = {'comment': commentVal};
   fetch("/data", {
     method: "POST", 
     body: JSON.stringify(data)
   });
 }
+
+async function getComments(){
+  let commentWrapper = document.getElementById("comment-wrapper");
+  const response = await fetch('/data');
+  let comments = await response.json();
+  for (let comm in comments["commentList"]) {
+    const content = comments["commentList"][comm];
+    console.log(content)
+    if(content["content"].length > 0){
+      let commentDiv = document.createElement("div");
+      let commentText = document.createTextNode(content["content"]);
+      commentDiv.appendChild(commentText);
+      commentDiv.className = "comment";
+      commentWrapper.appendChild(commentDiv);
+    }
+  }
+}
+
+window.onload = getComments;
