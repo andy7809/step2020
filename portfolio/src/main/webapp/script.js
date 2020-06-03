@@ -3,8 +3,7 @@
  @author Andrew Wiedenmann
  */
 "use strict";
-const POST_TARGET = "post";
-const COMMENT_CONTENT = "comment";
+
 
 // Get all collapsibles. coll is an array of html elements
 let coll = document.getElementsByClassName("collapsible");
@@ -33,26 +32,33 @@ function collapsibleRespondToClick(clickEvent) {
   }
 }
 
-let submitButton = document.getElementById(POST_TARGET);
+let submitButton = document.getElementById("post");
 submitButton.addEventListener("click", postComment);
 
+/**
+  Responds to the click of the post button. Posts a comment to the server.
+ */
 function postComment() {
-  const commentVal = document.getElementById(COMMENT_CONTENT).value
+  const commentVal = document.getElementById("comment").value
   const data = {'comment': commentVal};
-  fetch("/data", {
+  HttpRequestBody = { 
     method: "POST", 
     body: JSON.stringify(data)
-  });
+  };
+  fetch("/data", HttpRequestBody);
 }
 
+/**
+  Retrieves all comments from the server and displays them on the page.
+ */
 async function getComments(){
   let commentWrapper = document.getElementById("comment-wrapper");
   const response = await fetch('/data');
-  let comments = await response.json();
-  for (let comm in comments["commentList"]) {
-    const content = comments["commentList"][comm];
-    console.log(content)
-    if(content["content"].length > 0){
+  let serverResponse = await response.json();
+  for (let comment in serverResponse["commentList"]) {
+    const commentObj = serverResponse["commentList"][comment];
+    //Because an arraylist is used for now in server, sometimes there are empty objects in response
+    if(commentObj["content"].length > 0){
       let commentDiv = document.createElement("div");
       let commentText = document.createTextNode(content["content"]);
       commentDiv.appendChild(commentText);
