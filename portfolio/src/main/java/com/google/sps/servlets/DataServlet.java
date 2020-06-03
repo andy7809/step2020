@@ -58,9 +58,9 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {    
     try{
       String requestBody = getRequestBody(request);
-      JSONObject obj = new JSONObject(test);
+      JSONObject jsonComment = new JSONObject(requestBody);
       Entity commentEntity = new Entity(Comment.getDatastoreEntityKey());
-      commentEntity.setProperty("content", obj.get("comment"));
+      commentEntity.setProperty("content", jsonComment.get("comment"));
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(commentEntity);
     } catch(Exception e){
@@ -69,7 +69,12 @@ public class DataServlet extends HttpServlet {
   }
   
   private String getRequestBody(HttpServletRequest request){
-    String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-    return requestBody;
+    try{
+      String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+      return requestBody;
+    } catch(Exception e){
+      e.printStackTrace();
+      return null;
+    }
   }
 }
