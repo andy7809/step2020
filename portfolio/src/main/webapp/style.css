@@ -2,8 +2,9 @@
   border: none;
 }
 
-.active, .collapsible:hover {
-  background-color: #B7ADCF;
+.active,
+.collapsible:hover {
+  background-color: #b7adcf;
 }
 
 #author {
@@ -37,11 +38,15 @@
   margin-left: 250px;
 }
 
+.button {
+  margin-left: 95px;
+}
+
 .collapsible {
-  background-color: #9C89B8;
+  background-color: #9c89b8;
   border: none;
   border-bottom: 1px #252323 solid;
-  color: #F0E6EF;
+  color: #f0e6ef;
   cursor: pointer;
   font-size: 20px;
   margin-left: 50px;
@@ -61,10 +66,24 @@
   width: 75%;
 }
 
+.comment {
+  background-image: linear-gradient(
+    to right,
+    rgba(156, 137, 184, 1),
+    rgba(156, 137, 184, 0)
+  );
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  padding: 5px;
+  text-align: center;
+  width: 75%;
+}
+
 #content {
   background-color: rgb(37, 35, 35);
   color: rgb(240, 230, 239);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-bottom: 5%;
 }
 
@@ -74,9 +93,23 @@
   color: #252323;
   height: 7%;
   left: 0;
-  overflow: hidden; 
+  overflow: hidden;
   position: fixed;
-  width: 100%; 
+  width: 100%;
+}
+
+form {
+  border: 2px solid rgb(156, 137, 184, 1);
+  border-radius: 5px;
+  margin-left: 50px;
+  padding: 2px;
+  width: 400px;
+}
+
+form > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #header {
@@ -85,9 +118,25 @@
   padding: 1.5%;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
+}
+
+input,
+textarea {
+  border: 2px solid rgb(156, 137, 184, 1);
+  padding: 2px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 90px;
 }
 
 #links > ul {
@@ -117,7 +166,7 @@ html, body {
 
 #quote {
   display: inline-block;
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
   font-size: 30px;
   padding: 1%;
   text-align: center;
@@ -129,7 +178,11 @@ html, body {
 }
 
 .section-title {
-  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(156, 137, 184, 1),
+    rgba(156, 137, 184, 0)
+  );
   border-radius: 5px;
   font-size: 30px;
   margin-bottom: 10px;
@@ -159,6 +212,11 @@ html, body {
 
 #sidenav a:hover {
   text-decoration: underline;
+}
+
+textarea {
+  resize: none;
+  vertical-align: top;
 }
 
 #title {
