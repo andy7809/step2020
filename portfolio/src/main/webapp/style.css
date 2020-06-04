@@ -2,8 +2,9 @@
   border: none;
 }
 
-.active, .collapsible:hover {
-  background-color: #B7ADCF;
+.active,
+.collapsible:hover {
+  background-color: #b7adcf;
 }
 
 #author {
@@ -42,10 +43,10 @@
 }
 
 .collapsible {
-  background-color: #9C89B8;
+  background-color: #9c89b8;
   border: none;
   border-bottom: 1px #252323 solid;
-  color: #F0E6EF;
+  color: #f0e6ef;
   cursor: pointer;
   font-size: 20px;
   margin-left: 50px;
@@ -66,7 +67,11 @@
 }
 
 .comment {
-  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(156, 137, 184, 1),
+    rgba(156, 137, 184, 0)
+  );
   border-radius: 5px;
   margin-bottom: 20px;
   margin-left: 50px;
@@ -78,7 +83,7 @@
 #content {
   background-color: rgb(37, 35, 35);
   color: rgb(240, 230, 239);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-bottom: 5%;
 }
 
@@ -88,9 +93,9 @@
   color: #252323;
   height: 7%;
   left: 0;
-  overflow: hidden; 
+  overflow: hidden;
   position: fixed;
-  width: 100%; 
+  width: 100%;
 }
 
 form {
@@ -103,8 +108,8 @@ form {
 
 form > ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 #header {
@@ -113,12 +118,14 @@ form > ul {
   padding: 1.5%;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
 
-input, textarea {
+input,
+textarea {
   border: 2px solid rgb(156, 137, 184, 1);
   padding: 2px;
   border-radius: 5px;
@@ -159,7 +166,7 @@ label {
 
 #quote {
   display: inline-block;
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
   font-size: 30px;
   padding: 1%;
   text-align: center;
@@ -171,7 +178,11 @@ label {
 }
 
 .section-title {
-  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(156, 137, 184, 1),
+    rgba(156, 137, 184, 0)
+  );
   border-radius: 5px;
   font-size: 30px;
   margin-bottom: 10px;
