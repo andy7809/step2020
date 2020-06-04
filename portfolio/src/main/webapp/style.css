@@ -37,6 +37,10 @@
   margin-left: 250px;
 }
 
+.button {
+  margin-left: 95px;
+}
+
 .collapsible {
   background-color: #9C89B8;
   border: none;
@@ -61,6 +65,16 @@
   width: 75%;
 }
 
+.comment {
+  background-image: linear-gradient(to right, rgba(156, 137, 184, 1), rgba(156, 137, 184, 0));
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  padding: 5px;
+  text-align: center;
+  width: 75%;
+}
+
 #content {
   background-color: rgb(37, 35, 35);
   color: rgb(240, 230, 239);
@@ -79,6 +93,20 @@
   width: 100%; 
 }
 
+form {
+  border: 2px solid rgb(156, 137, 184, 1);
+  border-radius: 5px;
+  margin-left: 50px;
+  padding: 2px;
+  width: 400px;
+}
+
+form > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 #header {
   display: flex;
   margin-left: 200px;
@@ -88,6 +116,20 @@
 html, body {
   height: 100%;
   margin: 0;
+}
+
+input, textarea {
+  border: 2px solid rgb(156, 137, 184, 1);
+  padding: 2px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 90px;
 }
 
 #links > ul {
@@ -159,6 +201,11 @@ html, body {
 
 #sidenav a:hover {
   text-decoration: underline;
+}
+
+textarea {
+  resize: none;
+  vertical-align: top;
 }
 
 #title {
