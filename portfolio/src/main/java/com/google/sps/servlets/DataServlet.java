@@ -22,7 +22,8 @@ import org.json.JSONObject;
 */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  private static final String COMMENT_DATASTORE_KEY = "Comment";
+  //Default value "Comment" for testing purposes
+  private String commentDatastoreKey = "Comment";
   /**
   * Handles HTTP get request. Get all comments from the datastore and send as list json in response.
   * @param request the request received by servlet.
@@ -30,7 +31,7 @@ public class DataServlet extends HttpServlet {
   */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Query query = new Query(COMMENT_DATASTORE_KEY);
+    Query query = new Query(commentDatastoreKey);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
@@ -60,7 +61,7 @@ public class DataServlet extends HttpServlet {
     try{
       String requestBody = getRequestBody(request);
       JSONObject jsonComment = new JSONObject(requestBody);
-      Entity commentEntity = new Entity(COMMENT_DATASTORE_KEY);
+      Entity commentEntity = new Entity(commentDatastoreKey);
       commentEntity.setProperty("content", jsonComment.get("comment"));
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(commentEntity);
@@ -77,5 +78,13 @@ public class DataServlet extends HttpServlet {
       e.printStackTrace();
       return null;
     }
+  }
+
+  public void setCommentDatastoreKey(String newKey){
+    commentDatastoreKey = newKey;
+  }
+
+  public String getCommentDatastoreKey(){
+    return commentDatastoreKey;
   }
 }
