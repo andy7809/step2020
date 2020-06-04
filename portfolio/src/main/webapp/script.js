@@ -56,7 +56,7 @@ async function getComments() {
   let serverResponse = await response.json();
   for (const comment in serverResponse["commentList"]) {
     const commentObj = serverResponse["commentList"][comment];
-    //Because an arraylist is used for now in server, sometimes there are empty objects in response
+    // Because an arraylist is used for now in server, sometimes there are empty objects in response
     if (commentObj["content"].length > 0) {
       let commentDiv = document.createElement("div");
       let commentText = document.createTextNode(content["content"]);
