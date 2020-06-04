@@ -22,11 +22,11 @@ import org.json.JSONObject;
 */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  /**
-  * Handles HTTP get request. Get all comments from the datastore and send as list json in response.
-  * @param request the request received by servlet.
-  * @param response HTTP response to GET request.
-  */
+      /**
+      * Handles HTTP get request. Get all comments from the datastore and send as list json in response.
+      * @param request the request received by servlet.
+      * @param response HTTP response to GET request.
+      */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query(Comment.getDatastoreEntityKey());
@@ -55,9 +55,9 @@ public class DataServlet extends HttpServlet {
   * @param response HTTP response to POST request.
   */
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {    
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     try{
-      String requestBody = getRequestBody(request);
+      String requestBody = getRequestBody(request)                                                         ;
       JSONObject jsonComment = new JSONObject(requestBody);
       Entity commentEntity = new Entity(Comment.getDatastoreEntityKey());
       commentEntity.setProperty("content", jsonComment.get("comment"));
@@ -67,7 +67,7 @@ public class DataServlet extends HttpServlet {
       e.printStackTrace();
     }
   }
-  
+
   private String getRequestBody(HttpServletRequest request){
     try{
       String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));

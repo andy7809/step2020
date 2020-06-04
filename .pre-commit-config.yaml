@@ -1,0 +1,13 @@
+repos:
+  - repo: https://github.com/prettier/prettier
+    rev: ""
+    hooks:
+      - id: prettier
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
+    hooks:
+      - id: trailing-whitespace
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-java
+    rev: ""
+    hooks:
+      - id: validate-html
