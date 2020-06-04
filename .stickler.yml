@@ -1,11 +1,20 @@
+---
+branches:
+  # Ignore pull requests to the named branches
+  ignore:
+    - "wip"
+    - "feedback"
+
+review:
+  fail_on_comments: false
 
 linters:
-  csslint: {  }
-  flake8:
+  stylelint:
     fixer: true
-files:
-  ignore:
-    - 'bower_components/*'
-    - 'node_modules/*'
+  eslint:
+    fixer: true
+  checkstyle:
+    config: ./checkstyle.xml
+
 fixers:
   enable: true
