@@ -4,7 +4,6 @@
  */
 "use strict";
 
-
 // Get all collapsibles. coll is an array of html elements
 let coll = document.getElementsByClassName("collapsible");
 let i;
@@ -39,11 +38,11 @@ submitButton.addEventListener("click", postComment);
   Responds to the click of the post button. Posts a comment to the server.
  */
 function postComment() {
-  const commentVal = document.getElementById("comment").value
-  const data = {'comment': commentVal};
-  HttpRequestBody = { 
-    method: "POST", 
-    body: JSON.stringify(data)
+  const commentVal = document.getElementById("comment").value;
+  const data = { comment: commentVal };
+  HttpRequestBody = {
+    method: "POST",
+    body: JSON.stringify(data),
   };
   fetch("/data", HttpRequestBody);
 }
@@ -51,14 +50,14 @@ function postComment() {
 /**
   Retrieves all comments from the server and displays them on the page.
  */
-async function getComments(){
+async function getComments() {
   let commentWrapper = document.getElementById("comment-wrapper");
-  const response = await fetch('/data');
+  const response = await fetch("/data");
   let serverResponse = await response.json();
-  for (let comment in serverResponse["commentList"]) {
+  for (const comment in serverResponse["commentList"]) {
     const commentObj = serverResponse["commentList"][comment];
     //Because an arraylist is used for now in server, sometimes there are empty objects in response
-    if(commentObj["content"].length > 0){
+    if (commentObj["content"].length > 0) {
       let commentDiv = document.createElement("div");
       let commentText = document.createTextNode(content["content"]);
       commentDiv.appendChild(commentText);
