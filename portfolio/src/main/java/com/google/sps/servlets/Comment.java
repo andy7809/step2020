@@ -4,7 +4,6 @@ package com.google.sps.servlets;
 */
 public class Comment{
   private String content;
-  private static final String DATASTORE_ENTITY_KEY = "Comment";
 
   /**
   * Creates a new instance of a Comment from a string
