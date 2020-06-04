@@ -12,8 +12,4 @@ public class Comment{
   public Comment(String content){
     this.content = content;
   }
-
-  public static String getDatastoreEntityKey(){
-    return DATASTORE_ENTITY_KEY;
-  }
 }
