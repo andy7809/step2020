@@ -22,7 +22,7 @@ import org.json.JSONObject;
 */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  private static String COMMENT_DATASTORE_KEY = "Comment";
+  private static final String COMMENT_DATASTORE_KEY = "Comment";
   /**
   * Handles HTTP get request. Get all comments from the datastore and send as list json in response.
   * @param request the request received by servlet.
