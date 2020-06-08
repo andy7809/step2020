@@ -1,1 +1,1 @@
-This repo contains Andrew Wiedenmann's STEP portfolio and projects
+his repo contains Andrew Wiedenmann's STEP portfolio and projects
