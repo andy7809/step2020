@@ -1,3 +1,7 @@
 target/
 .idea
 .pre-commit-config.yaml
+.lock
+.packages
+.dart_tool/
+analysis_options.yaml
