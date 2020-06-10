@@ -12,7 +12,7 @@ void main() {
   var collapsibles = querySelectorAll(collapsibleQueryString);
   collapsibles.forEach(addCollapsibleClickListener);
 
-  Element submitBtn = querySelector(submitBtnQueryString);
+  var submitBtn = querySelector(submitBtnQueryString);
   submitBtn.onClick.listen(submitComment);
 }
 
@@ -35,7 +35,7 @@ void handleCollapsibleClick(Event event) {
 void submitComment(Event event) {
   var commentTextArea = querySelector("#comment") as TextAreaElement; 
   print(commentTextArea.runtimeType);
-  String commentVal = commentTextArea.value;
+  var commentVal = commentTextArea.value;
   print(commentVal);
   var json = { 'comment': commentVal };
   var request = new HttpRequest();
