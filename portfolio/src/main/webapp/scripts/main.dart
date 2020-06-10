@@ -2,13 +2,18 @@
 // dynamic content management/creation.
 
 import 'dart:html';
+import 'dart:convert';
 
-final String collapsibleQueryString = '.collapsible';
+final String collapsibleQueryString = ".collapsible";
+final String submitBtnQueryString = "#post";
 
 void main() {
   // Gets all collapsibles
   ElementList<Element> collapsibles = querySelectorAll(collapsibleQueryString);
   collapsibles.forEach(addCollapsibleClickListener);
+
+  Element submitBtn = querySelector(submitBtnQueryString);
+  submitBtn.onClick.listen(submitComment);
 }
 
 // Adds the handleCollapsibleClick handler to an element
@@ -25,4 +30,16 @@ void handleCollapsibleClick(Event event) {
   } else {
     contentElement.style.display = "block";
   }
+}
+
+void submitComment(Event event) {
+  var commentTextArea = querySelector("#comment") as TextAreaElement; 
+  print(commentTextArea.runtimeType);
+  String commentVal = commentTextArea.value;
+  print(commentVal);
+  var json = { 'comment': commentVal };
+  var request = new HttpRequest();
+  request.open("POST", "/data");
+  request.send(json);
+  print("done");
 }
