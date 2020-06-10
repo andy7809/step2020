@@ -7,7 +7,7 @@ final String collapsibleQueryString = '.collapsible';
 
 void main() {
   // Gets all collapsibles
-  ElementList<Element> collapsibles = querySelectorAll(collapsibleQueryString);
+  var collapsibles = querySelectorAll(collapsibleQueryString);
   collapsibles.forEach(addCollapsibleClickListener);
 }
 
@@ -18,8 +18,8 @@ void addCollapsibleClickListener(Element collapsible) {
 
 // Handles a click on collapsible event by toggling display of the next sibling of the collapsible
 void handleCollapsibleClick(Event event) {
-  Element collapsibleElement = event.target;
-  Element contentElement = collapsibleElement.nextElementSibling;
+  var collapsibleElement = event.target;
+  var contentElement = collapsibleElement.nextElementSibling;
   if(contentElement.style.display == "block") {
     contentElement.style.display = "none";
   } else {
