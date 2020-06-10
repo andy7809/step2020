@@ -4,15 +4,15 @@
 import 'dart:html';
 import 'dart:convert';
 
-final String collapsibleQueryString = ".collapsible";
-final String submitBtnQueryString = "#post";
+final String COLLAPSIBLE_QUERY_STR = ".collapsible";
+final String SUBMIT_BTN_QUERY_STR = "#post";
 
 void main() {
   // Gets all collapsibles
-  var collapsibles = querySelectorAll(collapsibleQueryString);
+  var collapsibles = querySelectorAll(COLLAPSIBLE_QUERY_STR);
   collapsibles.forEach(addCollapsibleClickListener);
 
-  var submitBtn = querySelector(submitBtnQueryString);
+  var submitBtn = querySelector(SUBMIT_BTN_QUERY_STR);
   submitBtn.onClick.listen(submitComment);
 }
 
