@@ -34,12 +34,9 @@ void handleCollapsibleClick(Event event) {
 
 void submitComment(Event event) {
   var commentTextArea = querySelector("#comment") as TextAreaElement; 
-  print(commentTextArea.runtimeType);
   var commentVal = commentTextArea.value;
-  print(commentVal);
   var json = { 'comment': commentVal };
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(json);
-  print("done");
 }
