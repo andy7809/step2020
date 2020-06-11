@@ -4,16 +4,21 @@
 import 'dart:html';
 import 'dart:convert';
 
+<<<<<<< HEAD
 final String COLLAPSIBLE_QUERY_STR = ".collapsible";
 final String POST_BTN_QUERY_STR = "#post";
 final String SELECT_QUERY_STR = "#cmnt-display-num";
+=======
+final String collapsibleQueryStr = ".collapsible";
+final String postBtnQueryStr = "#post";
+>>>>>>> f0469ce... change final var names to camelCase
 
 void main() {
   // Gets all collapsibles
-  var collapsibles = querySelectorAll(COLLAPSIBLE_QUERY_STR);
+  var collapsibles = querySelectorAll(collapsibleQueryStr);
   collapsibles.forEach(addCollapsibleClickListener);
 
-  var submitBtn = querySelector(POST_BTN_QUERY_STR);
+  var submitBtn = querySelector(postBtnQueryStr);
   submitBtn.onClick.listen(submitComment);
 
   window.onLoad.listen(displayComments);
