@@ -6,6 +6,7 @@ import 'dart:convert';
 
 final String COLLAPSIBLE_QUERY_STR = ".collapsible";
 final String POST_BTN_QUERY_STR = "#post";
+final String SELECT_QUERY_STR = "#cmnt-display-num";
 
 void main() {
   // Gets all collapsibles
@@ -38,7 +39,7 @@ void handleCollapsibleClick(Event event) {
 void submitComment(Event event) {
   var commentTextArea = querySelector("#comment") as TextAreaElement; 
   var commentVal = commentTextArea.value;
-  var json = { 'comment': commentVal };
+  var json = "{comment: $commentVal}";
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(json);
@@ -46,9 +47,12 @@ void submitComment(Event event) {
 
 // Displays all comments in the DOM, should be called on load
 Future<void> displayComments(Event event) async {
+  var numCommentsToDisplay = getNumberOfCommentsToDisplay();
+  var comments = await HttpRequest.getString("/data?num-comments=5");
+  var responseJson = jsonDecode(comments);
+  print(responseJson);
+
   var commentWrapper = querySelector("#comment-wrapper");
-  var response = await HttpRequest.getString("/data");
-  var responseJson = jsonDecode(response);
   for(final comment in responseJson["commentList"]) {
     if (comment["content"].length > 0) {
       var commentDiv = new DivElement();
@@ -57,4 +61,10 @@ Future<void> displayComments(Event event) async {
       commentWrapper.children.add(commentDiv);
     }
   }
+}
+
+String getNumberOfCommentsToDisplay() {
+  var selectElement = querySelector(SELECT_QUERY_STR) as SelectElement;
+  var selectedItem = selectElement.selectedOptions;
+  return selectedItem[0].value;
 }
