@@ -60,6 +60,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     try{
       String requestBody = getRequestBody(request);
+      System.out.println(requestBody);
       JSONObject jsonComment = new JSONObject(requestBody);
       Entity commentEntity = new Entity(commentDatastoreKey);
       commentEntity.setProperty("content", jsonComment.get("comment"));
