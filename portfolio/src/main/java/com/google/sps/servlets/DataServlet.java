@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
 
@@ -31,14 +32,21 @@ public class DataServlet extends HttpServlet {
   */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    int commentsToDisplay = Integer.parseInt(request.getParameter("num-comments"));
     Query query = new Query(commentDatastoreKey);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
     List<Comment> comments = new ArrayList<>();
-    for (Entity entity : results.asIterable()) {
+    Iterator<Entity> iter = results.asIterable().iterator();
+    int idx = 0;
+    while(iter.hasNext() && (idx < commentsToDisplay)) {
+      Entity entity = iter.next();
       String content = (String) entity.getProperty("content");
-      comments.add(new Comment(content));
+      if(content.length() > 0) {
+        idx++;
+        comments.add(new Comment(content));
+      }
     }
 
     response.setContentType("text/html;");
@@ -58,19 +66,30 @@ public class DataServlet extends HttpServlet {
   */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    try{
-      String requestBody = getRequestBody(request);
-      JSONObject jsonComment = new JSONObject(requestBody);
-      Entity commentEntity = new Entity(commentDatastoreKey);
-      commentEntity.setProperty("content", jsonComment.get("comment"));
-      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-      datastore.put(commentEntity);
-    } catch(Exception e){
+    JSONObject jsonComment = getJsonBody(request);
+    Entity commentEntity = new Entity(commentDatastoreKey);
+    commentEntity.setProperty("content", jsonComment.get("comment"));
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+  }
+
+  private JSONObject getJsonBody(HttpServletRequest request) {
+    String requestBody = getRequestBody(request);
+    return strToJson(requestBody);
+  }
+
+  private JSONObject strToJson(String jsonStr) {
+    try {
+      System.out.println(jsonStr);
+      JSONObject jsonObj = new JSONObject(jsonStr);
+      return jsonObj;
+    } catch (Exception e) {
       e.printStackTrace();
+      return null;
     }
   }
 
-  private String getRequestBody(HttpServletRequest request){
+  private String getRequestBody(HttpServletRequest request) {
     try{
       String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
       return requestBody;
