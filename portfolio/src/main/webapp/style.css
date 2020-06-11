@@ -87,6 +87,14 @@
   padding-bottom: 5%;
 }
 
+.dropdown {
+  background-image: none; 
+}
+
+#dropdown-lbl {
+  width: auto;
+}
+
 #footer {
   background-color: rgb(128, 128, 128);
   bottom: 0;
