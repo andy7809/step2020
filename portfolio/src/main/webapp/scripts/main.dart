@@ -4,14 +4,8 @@
 import 'dart:html';
 import 'dart:convert';
 
-<<<<<<< HEAD
-final String COLLAPSIBLE_QUERY_STR = ".collapsible";
-final String POST_BTN_QUERY_STR = "#post";
-final String SELECT_QUERY_STR = "#cmnt-display-num";
-=======
 final String collapsibleQueryStr = ".collapsible";
 final String postBtnQueryStr = "#post";
->>>>>>> f0469ce... change final var names to camelCase
 
 void main() {
   // Gets all collapsibles
@@ -43,8 +37,7 @@ void handleCollapsibleClick(Event event) {
 // Handles a click on the submit button
 void submitComment(Event event) {
   var commentTextArea = querySelector("#comment") as TextAreaElement; 
-  var commentVal = commentTextArea.value;
-  var json = "{comment: $commentVal}";
+  var json = { 'comment': commentTextArea.value };
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(json);
