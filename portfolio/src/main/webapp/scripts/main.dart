@@ -53,11 +53,12 @@ void submitComment(Event event) {
 // Displays all comments in the DOM, should be called on load
 Future<void> displayComments(Event event) async {
   var numCommentsToDisplay = getNumberOfCommentsToDisplay();
-  var comments = await HttpRequest.getString("/data?num-comments=5");
+  var comments = await HttpRequest.getString("/data?num-comments=$numCommentsToDisplay");
   var responseJson = jsonDecode(comments);
   print(responseJson);
 
   var commentWrapper = querySelector(commentWrapperQueryString);
+  clearComments(commentWrapper);
   for(final comment in responseJson["commentList"]) {
     if (comment["content"].length > 0) {
       var commentDiv = new DivElement();
@@ -72,4 +73,8 @@ String getNumberOfCommentsToDisplay() {
   var selectElement = querySelector(selectQueryStr) as SelectElement;
   var selectedItem = selectElement.selectedOptions;
   return selectedItem[0].value;
+}
+
+void clearComments(Element e) {
+  e.children.clear();
 }
