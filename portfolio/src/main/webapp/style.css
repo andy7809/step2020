@@ -95,6 +95,12 @@
   width: auto;
 }
 
+fieldset {
+  border: none;
+  padding: none;
+  display: inline-block;
+}
+
 #footer {
   background-color: rgb(128, 128, 128);
   bottom: 0;
@@ -114,7 +120,7 @@ form {
   width: 400px;
 }
 
-form > ul {
+form > fieldset > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -143,7 +149,6 @@ textarea {
 
 label {
   display: inline-block;
-  text-align: right;
   width: 90px;
 }
 
