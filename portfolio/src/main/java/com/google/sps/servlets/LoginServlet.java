@@ -23,6 +23,6 @@ public class LoginServlet extends HttpServlet {
     UserService userService = UserServiceFactory.getUserService();
     String urlToRedirectToAfterUserLogsIn = "/";
     response.setContentType("text/html;");
-    response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn() + ", \"loginUrl\": " + userService.createLoginURL(urlToRedirectToAfterUserLogsIn); + "}");
+    response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn() + ", \"loginUrl\": " + userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "}");
   }
 }
