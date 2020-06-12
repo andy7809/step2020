@@ -32,8 +32,9 @@ void main() async{
   clearBtn.onClick.listen(deleteAllComments);
 
   var loginResp = await HttpRequest.getString("/login");
+  print(loginResp);
   var jsonLoginInfo = jsonDecode(loginResp);
-  var isLoggedIn = jsonLoginInfo["isLoggedIn"].toLowerCase();
+  var isLoggedIn = jsonLoginInfo["isLoggedIn"];
   if(isLoggedIn) {
     enableForm();
   } else {
