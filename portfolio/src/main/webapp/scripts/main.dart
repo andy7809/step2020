@@ -10,8 +10,10 @@ final String commentQueryStr = "#comment";
 final String commentWrapperQueryString = "#comment-wrapper";
 final String selectQueryStr = "#cmnt-display-num";
 final String clearQueryStr = "#clear";
+final String fieldSetQueryStr = "#form-control";
+final String loginMsgQueryStr = "#login-link"
 
-void main() {
+void main() async{
   // Gets all collapsibles
   var collapsibles = querySelectorAll(collapsibleQueryStr);
   collapsibles.forEach(addCollapsibleClickListener);
@@ -27,6 +29,13 @@ void main() {
 
   var clearBtn = querySelector(clearQueryStr);
   clearBtn.onClick.listen(deleteAllComments);
+
+  var loginResp = await HttpRequest.getString("/login");
+  var jsonLoginInfo = jsonDecode(loginResp);
+  var isLoggedIn = jsonLoginInfo["isLoggedIn"].toLowerCase();
+  if(isLoggedIn) {
+    enableForm();
+  }
 }
 
 // Adds the handleCollapsibleClick handler to an element
@@ -85,4 +94,11 @@ void clearComments(Element e) {
 Future<void> deleteAllComments(Event event) async {
   await HttpRequest.request("/delete-data", method: "POST");
   displayComments(new Event("Event"));
+}
+
+void enableForm() {
+  var formFieldSet = querySelector(fieldSetQueryStr) as FieldSetElement;
+  formFieldSet.disabled = false;
+  var loginMsg = querySelector(loginMsg);
+  loginMsg.style.display = "none";
 }

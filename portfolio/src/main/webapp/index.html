@@ -32,7 +32,7 @@
 				have extinguishes even the fiery impulse for improvement. <br/>
 				-Friedrich Schiller
 			</div>
-			<hr />
+			<hr/>
 			<!-- Most sections have two parts: a title and collapsible content -->	
 			<div class="section"> <!-- interests section -->
 				<div class="section-title">
@@ -113,28 +113,31 @@
           </select>
         </div>
         <div id="comment-wrapper"></div>
-        <form> <!-- I followed a tutorial here: https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form for creating and styling an HTML form -->
-          <fieldset disabled="disabled">
-            <ul>
-              <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" />
-              </li>
-              <li>
-                <label for="mail">E-mail:</label>
-                <input type="email" id="mail" name="user_email" />
-              </li>
-              <li>
-                <label for="cmnt">Message:</label>
-                <textarea id="comment" name="user_message"></textarea>
-              </li>
-              <li class="button">
-                <button id="post" type="button">Post your comment!</button>
-                <button id="clear" type="button">Clear Comments!</button>
-              </li>
-            </ul>
-          </fieldset>
-        </form>
+          <form> <!-- I followed a tutorial here: https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form for creating and styling an HTML form -->
+            <fieldset id="form-control" disabled="disabled">
+              <ul>
+                <li>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="user_name" />
+                </li>
+                <li>
+                  <label for="mail">E-mail:</label>
+                  <input type="email" id="mail" name="user_email" />
+                </li>
+                <li>
+                  <label for="cmnt">Message:</label>
+                  <textarea id="comment" name="user_message"></textarea>
+                </li>
+                <li class="button">
+                  <button id="post" type="button">Post your comment!</button>
+                  <button id="clear" type="button">Clear Comments!</button>
+                </li>
+                <li id="login-msg">
+                  login <a href="#" id="login-link">here</a> to post!
+                </li>
+              </ul>
+            </fieldset>
+          </form>
       </div> <!-- END form section -->
 		</div> <!-- END body -->
 		<div id="footer"> <!-- Wrapper for footer items -->
