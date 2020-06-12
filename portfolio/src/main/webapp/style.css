@@ -94,11 +94,11 @@
   background-color: gray;
   margin-left: 50px;
   padding: 4px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .dropdown {
-  background-image: none; 
+  background-image: none;
 }
 
 #dropdown-lbl {
@@ -131,7 +131,6 @@ form {
   padding: none;
   display: inline-block;
 }
-
 
 #form-wrapper {
   position: relative;
@@ -207,7 +206,7 @@ label {
   text-decoration: none;
 }
 
-#login-link:hover {
+#login-link:visited {
   color: #f0e6ef;
   text-decoration: none;
 }

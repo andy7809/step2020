@@ -19,22 +19,27 @@ void main() async{
   var collapsibles = querySelectorAll(collapsibleQueryStr);
   collapsibles.forEach(addCollapsibleClickListener);
 
+  // Handle submit
   var submitBtn = querySelector(postBtnQueryStr);
   submitBtn.onClick.listen(submitComment);
   submitBtn.onClick.listen(displayComments);
 
+  // Refresh comments on load
   window.onLoad.listen(displayComments);
 
+  // Refresh comments when user selects different amount to show
   var selectElement = querySelector(selectQueryStr);
   selectElement.onChange.listen(displayComments);
 
+  // Handle clear button press
   var clearBtn = querySelector(clearQueryStr);
   clearBtn.onClick.listen(deleteAllComments);
 
+  // Get login info for this session
   var loginResp = await HttpRequest.getString("/login");
-  print(loginResp);
   var jsonLoginInfo = jsonDecode(loginResp);
   var isLoggedIn = jsonLoginInfo["isLoggedIn"];
+  // If the user is logged in, enable the form. Otherwise, activate login link
   if(isLoggedIn) {
     enableForm();
   } else {
@@ -85,21 +90,25 @@ Future<void> displayComments(Event event) async {
   }
 }
 
+// Gets the number of comments to display from select element
 String getNumberOfCommentsToDisplay() {
   var selectElement = querySelector(selectQueryStr) as SelectElement;
   var selectedItem = selectElement.selectedOptions;
   return selectedItem[0].value;
 }
 
+// Clears all the children from an Element.
 void clearComments(Element e) {
   e.children.clear();
 }
 
+// Deletes all comments from datastore
 Future<void> deleteAllComments(Event event) async {
   await HttpRequest.request("/delete-data", method: "POST");
   displayComments(new Event("Event"));
 }
 
+// Enables the comment posting form and removes the login message from the form
 void enableForm() {
   var formFieldSet = querySelector(fieldSetQueryStr) as FieldSetElement;
   formFieldSet.disabled = false;
@@ -107,6 +116,7 @@ void enableForm() {
   loginMsg.style.display = "none";
 }
 
+// Sets the login link href to the specified URL
 void setLoginLink(String url) {
   var loginUrl = querySelector(loginMsgLinkQueryStr) as AnchorElement;
   loginUrl.href = url;
