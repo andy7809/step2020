@@ -11,7 +11,8 @@ final String commentWrapperQueryString = "#comment-wrapper";
 final String selectQueryStr = "#cmnt-display-num";
 final String clearQueryStr = "#clear";
 final String fieldSetQueryStr = "#form-control";
-final String loginMsgQueryStr = "#login-link"
+final String loginMsgLiQueryStr = "#login-msg";
+final String loginMsgLinkQueryStr = "#login-link";
 
 void main() async{
   // Gets all collapsibles
@@ -35,6 +36,8 @@ void main() async{
   var isLoggedIn = jsonLoginInfo["isLoggedIn"].toLowerCase();
   if(isLoggedIn) {
     enableForm();
+  } else {
+    setLoginLink(jsonLoginInfo["loginUrl"]);
   }
 }
 
@@ -56,7 +59,7 @@ void handleCollapsibleClick(Event event) {
 
 // Handles a click on the submit button
 void submitComment(Event event) {
-  var commentTextArea = querySelector(commentQueryStr) as TextAreaElement; 
+  var commentTextArea = querySelector(commentQueryStr) as TextAreaElement;
   var json = { 'comment': commentTextArea.value };
   var request = new HttpRequest();
   request.open("POST", "/data");
@@ -99,6 +102,11 @@ Future<void> deleteAllComments(Event event) async {
 void enableForm() {
   var formFieldSet = querySelector(fieldSetQueryStr) as FieldSetElement;
   formFieldSet.disabled = false;
-  var loginMsg = querySelector(loginMsg);
+  var loginMsg = querySelector(loginMsgLiQueryStr);
   loginMsg.style.display = "none";
+}
+
+void setLoginLink(String url) {
+  var loginUrl = querySelector(loginMsgLinkQueryStr) as AnchorElement;
+  loginUrl.href = url;
 }
