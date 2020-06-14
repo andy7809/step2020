@@ -93,7 +93,7 @@ public class DataServlet extends HttpServlet {
       String requestBody = request.getReader().lines()
                            .collect(Collectors.joining(System.lineSeparator()));
       return requestBody;
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
       return null;
     }
