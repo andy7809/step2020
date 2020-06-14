@@ -2,9 +2,9 @@ package com.google.sps.servlets;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Entity;
 import com.google.gson.Gson;
 import com.google.sps.servlets.Comment;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class DataServlet extends HttpServlet {
     response.getWriter().println("{\"commentList\": " + objToJson(comments) + "}");
   }
 
-  private static String objToJson(Object o){
+  private static String objToJson(Object o) {
     Gson gson = new Gson();
     String json = gson.toJson(o);
     return json;
@@ -90,19 +90,20 @@ public class DataServlet extends HttpServlet {
 
   private String getRequestBody(HttpServletRequest request) {
     try {
-      String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+      String requestBody = request.getReader().lines()
+                           .collect(Collectors.joining(System.lineSeparator()));
       return requestBody;
-    } catch(Exception e){
+    } catch(Exception e) {
       e.printStackTrace();
       return null;
     }
   }
 
-  public void setCommentDatastoreKey(String newKey){
+  public void setCommentDatastoreKey(String newKey) {
     commentDatastoreKey = newKey;
   }
 
-  public String getCommentDatastoreKey(){
+  public String getCommentDatastoreKey() {
     return commentDatastoreKey;
   }
 }
