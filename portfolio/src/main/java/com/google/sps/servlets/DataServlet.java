@@ -80,7 +80,6 @@ public class DataServlet extends HttpServlet {
 
   private JSONObject strToJson(String jsonStr) {
     try {
-      System.out.println(jsonStr);
       JSONObject jsonObj = new JSONObject(jsonStr);
       return jsonObj;
     } catch (Exception e) {
