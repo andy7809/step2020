@@ -43,7 +43,7 @@ void handleCollapsibleClick(Event event) {
 
 // Handles a click on the submit button
 void submitComment(Event event) {
-  var commentTextArea = querySelector(commentQueryStr) as TextAreaElement; 
+  var commentTextArea = querySelector(commentQueryStr) as TextAreaElement;
   var json = { 'comment': commentTextArea.value };
   var request = new HttpRequest();
   request.open("POST", "/data");
@@ -55,7 +55,6 @@ Future<void> displayComments(Event event) async {
   var numCommentsToDisplay = getNumberOfCommentsToDisplay();
   var comments = await HttpRequest.getString("/data?num-comments=$numCommentsToDisplay");
   var responseJson = jsonDecode(comments);
-  print(responseJson);
 
   var commentWrapper = querySelector(commentWrapperQueryString);
   clearComments(commentWrapper);
