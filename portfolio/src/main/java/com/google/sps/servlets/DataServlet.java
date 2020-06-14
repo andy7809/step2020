@@ -8,14 +8,14 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.gson.Gson;
 import com.google.sps.servlets.Comment;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Iterator;
-import java.util.stream.Collectors;
 import org.json.JSONObject;
 
 /**
@@ -40,10 +40,10 @@ public class DataServlet extends HttpServlet {
     List<Comment> comments = new ArrayList<>();
     Iterator<Entity> iter = results.asIterable().iterator();
     int idx = 0;
-    while(iter.hasNext() && (idx < commentsToDisplay)) {
+    while (iter.hasNext() && (idx < commentsToDisplay)) {
       Entity entity = iter.next();
       String content = (String) entity.getProperty("content");
-      if(content.length() > 0) {
+      if (content.length() > 0) {
         idx++;
         comments.add(new Comment(content));
       }
@@ -89,7 +89,7 @@ public class DataServlet extends HttpServlet {
   }
 
   private String getRequestBody(HttpServletRequest request) {
-    try{
+    try {
       String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
       return requestBody;
     } catch(Exception e){
