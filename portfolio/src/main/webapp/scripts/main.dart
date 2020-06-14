@@ -66,10 +66,12 @@ void handleCollapsibleClick(Event event) {
 // Handles a click on the submit button
 void submitComment(Event event) {
   var commentTextArea = querySelector(commentQueryStr) as TextAreaElement;
-  var json = { 'comment': commentTextArea.value };
+  var jsonCommentSubmit = { "comment": commentTextArea.value,
+                            "nickname": getUserNickname(),
+                            "time": getDateTimeNow()};
   var request = new HttpRequest();
   request.open("POST", "/data");
-  request.send(json);
+  request.send(jsonCommentSubmit);
 }
 
 // Displays all comments in the DOM, should be called on load
@@ -104,8 +106,14 @@ void clearComments(Element e) {
 
 // Deletes all comments from datastore
 Future<void> deleteAllComments(Event event) async {
-  await HttpRequest.request("/delete-data", method: "POST");
-  displayComments(new Event("Event"));
+  var loginResp = await HttpRequest.getString("/login");
+  var jsonLoginInfo = jsonDecode(loginResp);
+  if (jsonLoginInfo["isAdminUser"]) {
+    await HttpRequest.request("/delete-data", method: "POST");
+    displayComments(new Event("Event"));
+  } else {
+    window.alert("You are not a website admin, please login to delete all comments");
+  }
 }
 
 // Enables the comment posting form and removes the login message from the form
@@ -120,4 +128,15 @@ void enableForm() {
 void setLoginLink(String url) {
   var loginUrl = querySelector(loginMsgLinkQueryStr) as AnchorElement;
   loginUrl.href = url;
+}
+
+String getUserNickname() {
+  var loginResp = await HttpRequest.getString("/login");
+  var jsonLoginInfo = jsonDecode(loginResp);
+  return loginResp["userNickname"];
+}
+
+String getDateTimeNow() {
+  var dateFormatter = new DateFormat.yMd().add_jm().format(new DateTime.now());
+  return dateFormatter.toString();
 }
