@@ -1,0 +1,6 @@
+name: portfolio
+description: My portfolio for STEP 2020
+
+dependencies:
+  http: ^0.12.1
+  intl: ^0.16.1
