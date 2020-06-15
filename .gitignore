@@ -1,3 +1,13 @@
 target/
 .idea
-.pre-commit-config.yaml
+.lock
+.packages
+.dart_tool/
+*.deps
+*.map
+*.dart.js
+*.dart.js.deps
+*.dart.js.map
+.pre-commit*
+.stickler*
+*.lock
