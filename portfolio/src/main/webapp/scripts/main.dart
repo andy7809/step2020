@@ -65,11 +65,13 @@ void handleCollapsibleClick(Event event) {
 }
 
 // Handles a click on the submit button
-void submitComment(Event event) {
+Future<void> submitComment(Event event) async {
   var commentTextArea = querySelector(commentQueryStr) as TextAreaElement;
-  var jsonCommentSubmit = { "comment": commentTextArea.value,
-                            "nickname": getUserNickname(),
-                            "time": getDateTimeNow()};
+  var nickname = await getUserNickname();
+  var commentContent = commentTextArea.value;
+  var jsonCommentSubmit = { "comment": "$commentContent",
+                            "nickname": "$nickname",
+                            "time": "$getDateTimeNow()"};
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(jsonCommentSubmit);
