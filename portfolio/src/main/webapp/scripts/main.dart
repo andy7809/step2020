@@ -70,9 +70,9 @@ Future<void> submitComment(Event event) async {
   var nickname = await getUserNickname();
   var commentContent = commentTextArea.value;
   var time = getDateTimeNow();
-  var jsonCommentSubmit = { "comment": "$commentContent",
-                            "nickname": "$nickname",
-                            "time": "$time"};
+  var jsonCommentSubmit = { "\"comment\"": "\"$commentContent\"",
+                            "\"nickname\"": "\"$nickname\"",
+                            "\"time\"": "\"$time\""};
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(jsonCommentSubmit);
@@ -90,7 +90,7 @@ Future<void> displayComments(Event event) async {
   for(final comment in responseJson["commentList"]) {
     if (comment["content"].length > 0) {
       var commentDiv = new DivElement();
-      commentDiv.text = comment["content"];
+      commentDiv.text = comment["content"] + "\n" + "- " + comment["name"] + " at " + comment["time"];
       commentDiv.classes.add("comment");
       commentWrapper.children.add(commentDiv);
     }
@@ -116,6 +116,7 @@ Future<void> deleteAllComments(Event event) async {
   if (jsonLoginInfo["isAdminUser"]) {
     await HttpRequest.request("/delete-data", method: "POST");
     displayComments(new Event("Event"));
+    window.location.reload();
   } else {
     window.alert("You are not a website admin, please login to delete all comments");
   }
