@@ -3,6 +3,7 @@
 
 import 'dart:html';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 final String collapsibleQueryStr = ".collapsible";
 final String postBtnQueryStr = "#post";
@@ -130,10 +131,11 @@ void setLoginLink(String url) {
   loginUrl.href = url;
 }
 
-String getUserNickname() {
+Future<String> getUserNickname() async {
   var loginResp = await HttpRequest.getString("/login");
   var jsonLoginInfo = jsonDecode(loginResp);
-  return loginResp["userNickname"];
+  var nickname = jsonLoginInfo["userNickname"];
+  return nickname;
 }
 
 String getDateTimeNow() {
