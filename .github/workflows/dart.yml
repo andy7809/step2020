@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-            cd portfolio/src/main/webapp/scripts/
+            cd portfolio/src/main/webapp/
             pub get
     - name: Compile
       run: |
@@ -37,6 +37,6 @@ jobs:
           # Required:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional:
-          relativePath: portfolio/src/main/webapp/scripts/
+          relativePath: portfolio/src/main/webapp/
           minAnnotationLevel: info
           
