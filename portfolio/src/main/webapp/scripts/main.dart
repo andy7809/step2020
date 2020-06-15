@@ -9,6 +9,7 @@ final String postBtnQueryStr = "#post";
 final String commentQueryStr = "#comment";
 final String commentWrapperQueryString = "#comment-wrapper";
 final String selectQueryStr = "#cmnt-display-num";
+final String clearQueryStr = "#clear";
 
 void main() {
   // Gets all collapsibles
@@ -23,6 +24,9 @@ void main() {
 
   var selectElement = querySelector(selectQueryStr);
   selectElement.onChange.listen(displayComments);
+
+  var clearBtn = querySelector(clearQueryStr);
+  clearBtn.onClick.listen(deleteAllComments);
 }
 
 // Adds the handleCollapsibleClick handler to an element
@@ -76,4 +80,9 @@ String getNumberOfCommentsToDisplay() {
 
 void clearComments(Element e) {
   e.children.clear();
+}
+
+Future<void> deleteAllComments(Event event) async {
+  await HttpRequest.request("/delete-data", method: "POST");
+  displayComments(new Event("Event"));
 }
