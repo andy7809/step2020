@@ -22,8 +22,17 @@ public class LoginServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     UserService userService = UserServiceFactory.getUserService();
     String urlToRedirectToAfterUserLogsIn = "/";
+    boolean isLoggedIn = userService.isUserLoggedIn();
+    boolean isAdminUser = false;
+    String userNickname = "";
+    if (isLoggedIn) {
+      isAdminUser = userService.isUserAdmin();
+      userNickname = userService.getCurrentUser().getNickname();
+    }
+
     response.setContentType("text/html;");
     response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn() + ", \"loginUrl\": \"" +
-      userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "\", \"isAdminUser: \"" +
+      userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "\", \"isAdminUser: \"" + isAdminUser +
+      "\"userNickname\": \"" + userNickname + "\"}";
   }
 }
