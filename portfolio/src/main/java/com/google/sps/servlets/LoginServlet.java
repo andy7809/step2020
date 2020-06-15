@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
     response.setContentType("text/html;");
     response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn() + ", \"loginUrl\": \"" +
-      userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "\", \"isAdminUser: \"" + isAdminUser +
-      "\", userNickname\": \"" + userNickname + "\"}");
+      userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "\", \"isAdminUser\": " + isAdminUser +
+      ", \"userNickname\": \"" + userNickname + "\"}");
   }
 }
