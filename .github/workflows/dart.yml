@@ -27,4 +27,4 @@ jobs:
     - name: Lint + code review
       run: |
             cd portfolio/src/main/webapp/scripts/
-            dartanalyzer ./main.dart --lints --hints
+            dartanalyzer ./main.dart --lints
