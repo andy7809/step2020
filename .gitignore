@@ -8,5 +8,6 @@ target/
 *.dart.js
 *.dart.js.deps
 *.dart.js.map
-*.yaml
+.pre-commit*
+.stickler*
 *.lock
