@@ -1,0 +1,42 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+            cd portfolio/src/main/webapp/scripts/
+            pub get
+    - name: Compile
+      run: |
+            cd portfolio/src/main/webapp/scripts/
+            dart2js ./main.dart
+            
+  package-analysis:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # required
+
+      - uses: axel-op/dart-package-analyzer@v2
+        with:
+          # Required:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional:
+          relativePath: portfolio/src/main/webapp/scripts/
+          minAnnotationLevel: info
+          
