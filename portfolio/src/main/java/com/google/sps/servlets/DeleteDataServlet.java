@@ -7,15 +7,15 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
-* Servlet class to handle requests for deleting all data from datastore
+* Servlet class to handle requests for deleting all data from datastore.
 */
 @WebServlet("/delete-data")
 public class DeleteDataServlet extends HttpServlet {
@@ -40,11 +40,11 @@ public class DeleteDataServlet extends HttpServlet {
     datastore.delete(keys);
   }
 
-  public void setCommentDatastoreKey(String newKey){
+  public void setCommentDatastoreKey(String newKey) {
     commentDatastoreKey = newKey;
   }
 
-  public String getCommentDatastoreKey(){
+  public String getCommentDatastoreKey() {
     return commentDatastoreKey;
   }
 }
