@@ -69,12 +69,14 @@ Future<void> submitComment(Event event) async {
   var commentTextArea = querySelector(commentQueryStr) as TextAreaElement;
   var nickname = await getUserNickname();
   var commentContent = commentTextArea.value;
+  var time = getDateTimeNow();
   var jsonCommentSubmit = { "comment": "$commentContent",
                             "nickname": "$nickname",
-                            "time": "$getDateTimeNow()"};
+                            "time": "$time"};
   var request = new HttpRequest();
   request.open("POST", "/data");
   request.send(jsonCommentSubmit);
+  window.location.reload();
 }
 
 // Displays all comments in the DOM, should be called on load
