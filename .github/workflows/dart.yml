@@ -24,19 +24,7 @@ jobs:
       run: |
             cd portfolio/src/main/webapp/scripts/
             dart2js ./main.dart
-            
-  package-analysis:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2 # required
-
-      - uses: axel-op/dart-package-analyzer@v2
-        with:
-          # Required:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional:
-          relativePath: portfolio/src/main/webapp/
-          minAnnotationLevel: info
-          
+    - name: Lint + code review
+      run: |
+            cd portfolio/src/main/webapp/scripts/
+            dartanalyzer ./main.dart --lints --hints
