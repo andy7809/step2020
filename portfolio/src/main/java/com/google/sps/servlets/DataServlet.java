@@ -25,6 +25,7 @@ import org.json.JSONObject;
 public class DataServlet extends HttpServlet {
   //Default value "Comment" for testing purposes
   private String commentDatastoreKey = "Comment";
+
   /**
   * Handles HTTP get request. Get all comments from the datastore and send as list json in response.
   * @param request the request received by servlet.
