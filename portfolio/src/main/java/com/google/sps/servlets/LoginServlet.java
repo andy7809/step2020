@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-* Servlet class to handle requests for deleting all data from datastore
+* Servlet class to handle requests for deleting all data from datastore.
 */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -31,8 +31,9 @@ public class LoginServlet extends HttpServlet {
     }
 
     response.setContentType("text/html;");
-    response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn() + ", \"loginUrl\": \"" +
-      userService.createLoginURL(urlToRedirectToAfterUserLogsIn) + "\", \"isAdminUser\": " + isAdminUser +
-      ", \"userNickname\": \"" + userNickname + "\"}");
+    response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn()
+        + ", \"loginUrl\": \"" + userService.createLoginURL(urlToRedirectToAfterUserLogsIn)
+        + "\", \"isAdminUser\": " + isAdminUser + ", \"userNickname\": \""
+        + userNickname + "\"}");
   }
 }

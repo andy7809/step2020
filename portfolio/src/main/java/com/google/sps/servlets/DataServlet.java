@@ -46,7 +46,7 @@ public class DataServlet extends HttpServlet {
       String content = (String) entity.getProperty("content");
       String time = (String) entity.getProperty("time");
       String nickname = (String) entity.getProperty("name");
-      if(content.length() > 0) {
+      if (content.length() > 0) {
         idx++;
         comments.add(new Comment(content, nickname, time));
       }

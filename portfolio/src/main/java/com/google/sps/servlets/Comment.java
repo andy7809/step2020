@@ -14,7 +14,7 @@ public class Comment {
   * @param content The string content of this comment
   * @param name The name of the user posting this comment
   */
-  public Comment(String content, String name, String time){
+  public Comment(String content, String name, String time) {
     this.content = content;
     this.name = name;
     this.time = time;
