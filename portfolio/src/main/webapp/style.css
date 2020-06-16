@@ -77,6 +77,7 @@
   margin-left: 50px;
   padding: 5px;
   text-align: center;
+  white-space: pre-wrap;
   width: 75%;
 }
 
@@ -87,8 +88,18 @@
   padding-bottom: 5%;
 }
 
+.disabled {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  background-color: gray;
+  margin-left: 50px;
+  padding: 4px;
+  opacity: 0.8;
+}
+
 .dropdown {
-  background-image: none; 
+  background-image: none;
 }
 
 #dropdown-lbl {
@@ -109,12 +120,26 @@
 form {
   border: 2px solid rgb(156, 137, 184, 1);
   border-radius: 5px;
+  left: 0;
   margin-left: 50px;
   padding: 2px;
+  top: 0;
   width: 400px;
 }
 
-form > ul {
+#form-control {
+  border: none;
+  padding: none;
+  display: inline-block;
+}
+
+#form-wrapper {
+  position: relative;
+  display: block;
+  height: auto;
+}
+
+form > fieldset > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -143,7 +168,6 @@ textarea {
 
 label {
   display: inline-block;
-  text-align: right;
   width: 90px;
 }
 
@@ -170,6 +194,26 @@ label {
 
 #links > ul > li > a:visited {
   color: #252323;
+}
+
+#login-link:link {
+  color: #f0e6ef;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#login-link:hover {
+  color: #f0e6ef;
+  text-decoration: none;
+}
+
+#login-link:visited {
+  color: #f0e6ef;
+  text-decoration: none;
+}
+
+#login-msg {
+  padding: 2px;
 }
 
 #quote {

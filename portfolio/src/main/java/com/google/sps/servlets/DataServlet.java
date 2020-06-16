@@ -44,9 +44,11 @@ public class DataServlet extends HttpServlet {
     while (iter.hasNext() && (idx < commentsToDisplay)) {
       Entity entity = iter.next();
       String content = (String) entity.getProperty("content");
-      if (content.length() > 0) {
+      String time = (String) entity.getProperty("time");
+      String nickname = (String) entity.getProperty("name");
+      if(content.length() > 0) {
         idx++;
-        comments.add(new Comment(content));
+        comments.add(new Comment(content, nickname, time));
       }
     }
 
@@ -70,6 +72,8 @@ public class DataServlet extends HttpServlet {
     JSONObject jsonComment = getJsonBody(request);
     Entity commentEntity = new Entity(commentDatastoreKey);
     commentEntity.setProperty("content", jsonComment.get("comment"));
+    commentEntity.setProperty("name", jsonComment.get("nickname"));
+    commentEntity.setProperty("time", jsonComment.get("time"));
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
   }
