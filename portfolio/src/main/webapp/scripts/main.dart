@@ -15,7 +15,7 @@ final String fieldSetQueryStr = "#form-control";
 final String loginMsgLiQueryStr = "#login-msg";
 final String loginMsgLinkQueryStr = "#login-link";
 
-void main() async{
+void main() async {
   // Gets all collapsibles
   var collapsibles = querySelectorAll(collapsibleQueryStr);
   collapsibles.forEach(addCollapsibleClickListener);
