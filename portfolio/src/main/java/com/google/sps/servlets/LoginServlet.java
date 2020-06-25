@@ -31,9 +31,8 @@ public class LoginServlet extends HttpServlet {
     }
 
     response.setContentType("text/html;");
-    response.getWriter().println("{\"isLoggedIn\": " + userService.isUserLoggedIn()
-        + ", \"loginUrl\": \"" + userService.createLoginURL(urlToRedirectToAfterUserLogsIn)
-        + "\", \"isAdminUser\": " + isAdminUser + ", \"userNickname\": \""
-        + userNickname + "\"}");
+    String returnJson = String.format("{\"isLoggedIn\": %s, \"loginUrl\": \"%s\", \"isAdminUser\": %s, \"userNickname\": \"%s\"}",
+                        isLoggedIn, userService.createLoginURL(urlToRedirectToAfterUserLogsIn), isAdminUser, userNickname);
+    response.getWriter().println(returnJson);
   }
 }
