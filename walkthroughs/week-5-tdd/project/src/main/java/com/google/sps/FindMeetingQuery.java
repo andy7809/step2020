@@ -77,7 +77,7 @@ public final class FindMeetingQuery {
         availableStartTime = unavailableTime.end();
       }
     }
-    // Check the time from the current end time to the end of the day, as it isn't checked in the loop
+    // Check the time from the current end time to the end of the day, it isn't checked in the loop
     if (TimeRange.END_OF_DAY - availableStartTime >= duration) {
       availableTimes.add(TimeRange.fromStartEnd(availableStartTime,
                                                 TimeRange.END_OF_DAY, true));
