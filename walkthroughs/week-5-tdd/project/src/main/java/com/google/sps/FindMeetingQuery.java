@@ -14,19 +14,20 @@
 
 package com.google.sps;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
     // Add required booked times to a list.
     List<TimeRange> requiredBookedTimes = getAttendeeMeetings(request.getAttendees(), events);
     Collections.sort(requiredBookedTimes, TimeRange.ORDER_BY_START);
-    Collection<TimeRange> requiredAvailableTimes = getAvailableTimes(requiredBookedTimes, request.getDuration());
-    // If there are no required attendees, set the required available times to empty (all day is returned)
+    Collection<TimeRange> requiredAvailableTimes = getAvailableTimes(requiredBookedTimes,
+                                                                     request.getDuration());
+    // If there are no required attendees, set the required available times to empty
     if (request.getAttendees().isEmpty()) {
       requiredAvailableTimes = Collections.emptySet();
     }
@@ -38,7 +39,8 @@ public final class FindMeetingQuery {
 
     List<TimeRange> allBookedTimes = getAttendeeMeetings(allAttendees, events);
     Collections.sort(allBookedTimes, TimeRange.ORDER_BY_START);
-    Collection<TimeRange> allAvailableTimes = getAvailableTimes(allBookedTimes, request.getDuration());
+    Collection<TimeRange> allAvailableTimes = getAvailableTimes(allBookedTimes,
+                                                                request.getDuration());
 
     // If there are no times for all of the attendees on the request, return the required times.
     if (allAvailableTimes.isEmpty()) {
@@ -53,13 +55,13 @@ public final class FindMeetingQuery {
   */
   private Collection<TimeRange> getAvailableTimes(List<TimeRange> bookedTimes, long duration) {
     /* Algorithm: have a start time and end time. The start time begins as the beginning of the day,
-       while the end time begins as 0 or null. Then for every time range in the unavailable meetings,
+       while the end time begins as 0 or null. Then for every time range in unavailable meetings,
        set end time to the start of the unavailable time. If the time between start and end can fit
        the requested duration, add it to the return collection. The start time becomes the end time
        of this TimeRange.
 
-       To handle overlapping unavailable times, only run the loop body if the start time is less than
-       the end time of this TimeRange.
+       To handle overlapping unavailable times, only run the loop body if the start time is less
+       than the end time of this TimeRange.
     */
     int availableStartTime = TimeRange.START_OF_DAY;
     int availableEndTime = 0;
@@ -69,14 +71,16 @@ public final class FindMeetingQuery {
       if (availableStartTime < unavailableTime.end()) {
         availableEndTime = unavailableTime.start();
         if (availableEndTime - availableStartTime >= duration) {
-          availableTimes.add(TimeRange.fromStartEnd(availableStartTime, availableEndTime, false));
+          availableTimes.add(TimeRange.fromStartEnd(availableStartTime,
+                                                    availableEndTime, false));
         }
         availableStartTime = unavailableTime.end();
       }
     }
     // Check the time from the current end time to the end of the day, as it isn't checked in the loop
     if (TimeRange.END_OF_DAY - availableStartTime >= duration) {
-      availableTimes.add(TimeRange.fromStartEnd(availableStartTime, TimeRange.END_OF_DAY, true));
+      availableTimes.add(TimeRange.fromStartEnd(availableStartTime,
+                                                TimeRange.END_OF_DAY, true));
     }
     return availableTimes;
   }
@@ -84,7 +88,8 @@ public final class FindMeetingQuery {
   /**
   * Returns a List of all the times that the requested attendees are in meetings.
   */
-  private List<TimeRange> getAttendeeMeetings(Collection<String> requestAttendees, Collection<Event> allEvents) {
+  private List<TimeRange> getAttendeeMeetings(Collection<String> requestAttendees,
+                                              Collection<Event> allEvents) {
     List<TimeRange> allTimesInMeetings = new ArrayList<TimeRange>();
     for (Event event : allEvents) {
       for (String eventAttendee : event.getAttendees()) {
