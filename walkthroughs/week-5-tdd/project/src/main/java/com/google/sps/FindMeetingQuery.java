@@ -44,6 +44,7 @@ public final class FindMeetingQuery {
     int availableStartTime = TimeRange.START_OF_DAY;
     int availableEndTime = 0;
     Collection<TimeRange> availableTimes = new ArrayList<>();
+
     for (TimeRange unavailableTime : allBookedTimes) {
       if (availableStartTime < unavailableTime.end()) {
         availableEndTime = unavailableTime.start();
