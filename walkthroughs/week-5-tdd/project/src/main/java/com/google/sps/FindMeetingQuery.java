@@ -15,9 +15,38 @@
 package com.google.sps;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    throw new UnsupportedOperationException("TODO: Implement this method.");
+    // If there are no attendees, there are no possible time ranges
+    if (request.getAttendees().size() == 0) {
+      return Collections.emptySet();
+    }
+
+    // Add all times to list.
+    List<TimeRange> allBookedTimes = getAttendeeMeetings(request.getAttendees(), events);
+    Collections.sort(allBookedTimes, TimeRange.ORDER_BY_START);
+
+    return availableTimes;
+
+  }
+
+  /**
+  * Returns a Collection of all the times that the requested attendees are in meetings.
+  */
+  public List<TimeRange> getAttendeeMeetings(Collection<String> requestAttendees, Collection<Event> allEvents) {
+    List<TimeRange> allTimesInMeetings = new ArrayList<TimeRange>();
+    for (Event event : allEvents) {
+      for (String eventAttendee : event.getAttendees()) {
+        // If this attendee of the event is a requested attendee, add event time to list
+        if (requestAttendees.contains(eventAttendee)) {
+          allTimesInMeetings.add(event.getWhen);
+          // Break out of attendee loop so duplicates aren't added to list
+          break;
+        }
+      }
+    }
+    return allTimesInMeetings;
   }
 }
