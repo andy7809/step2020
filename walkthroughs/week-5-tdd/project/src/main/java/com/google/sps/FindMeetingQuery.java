@@ -28,9 +28,18 @@ public final class FindMeetingQuery {
     }
 
     // Add all booked times to a list.
-    List<TimeRange> allBookedTimes = getAttendeeMeetings(request.getAttendees(), events);
-    Collections.sort(allBookedTimes, TimeRange.ORDER_BY_START);
+    List<TimeRange> requiredBookedTimes = getAttendeeMeetings(request.getAttendees(), events);
+    Collections.sort(requiredBookedTimes, TimeRange.ORDER_BY_START);
+    Collection<TimeRange> requiredAvailableTimes = getAvailableTimes(requiredBookedTimes, request.getDuration());
+    if (request.getOptionalAttendees().size() == 0) {
+      return requiredAvailableTimes;
+    }
 
+    List<TimeRange> optionalBookedTimes = getAttendeeMeetings(request.getOptionalAttendees(), events);
+    return null;
+  }
+
+  private Collection<TimeRange> getAvailableTimes(List<TimeRange> bookedTimes, long duration) {
     /* Algorithm: have a start time and end time. The start time begins as the beginning of the day,
        while the end time begins as 0 or null. Then for every time range in the unavailable meetings,
        set end time to the start of the unavailable time. If the time between start and end can fit
@@ -40,32 +49,30 @@ public final class FindMeetingQuery {
        To handle overlapping unavailable times, only run the loop body if the start time is less than
        the end time of this TimeRange.
     */
-
     int availableStartTime = TimeRange.START_OF_DAY;
     int availableEndTime = 0;
     Collection<TimeRange> availableTimes = new ArrayList<>();
 
-    for (TimeRange unavailableTime : allBookedTimes) {
+    for (TimeRange unavailableTime : bookedTimes) {
       if (availableStartTime < unavailableTime.end()) {
         availableEndTime = unavailableTime.start();
-        if (availableEndTime - availableStartTime >= request.getDuration()) {
+        if (availableEndTime - availableStartTime >= duration) {
           availableTimes.add(TimeRange.fromStartEnd(availableStartTime, availableEndTime, false));
         }
         availableStartTime = unavailableTime.end();
       }
     }
     // Check the time from the current end time to the end of the day, as it isn't checked in the loop
-    if (TimeRange.END_OF_DAY - availableStartTime >= request.getDuration()) {
+    if (TimeRange.END_OF_DAY - availableStartTime >= duration) {
       availableTimes.add(TimeRange.fromStartEnd(availableStartTime, TimeRange.END_OF_DAY, true));
     }
     return availableTimes;
-
   }
 
   /**
   * Returns a List of all the times that the requested attendees are in meetings.
   */
-  public List<TimeRange> getAttendeeMeetings(Collection<String> requestAttendees, Collection<Event> allEvents) {
+  private List<TimeRange> getAttendeeMeetings(Collection<String> requestAttendees, Collection<Event> allEvents) {
     List<TimeRange> allTimesInMeetings = new ArrayList<TimeRange>();
     for (Event event : allEvents) {
       for (String eventAttendee : event.getAttendees()) {
