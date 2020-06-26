@@ -22,23 +22,35 @@ import java.util.Arrays;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    // If there are no attendees, the possible meeting time is all day
-    if (request.getAttendees().size() == 0) {
-      return Arrays.asList(TimeRange.WHOLE_DAY);
-    }
-
-    // Add all booked times to a list.
+    // Add required booked times to a list.
     List<TimeRange> requiredBookedTimes = getAttendeeMeetings(request.getAttendees(), events);
     Collections.sort(requiredBookedTimes, TimeRange.ORDER_BY_START);
     Collection<TimeRange> requiredAvailableTimes = getAvailableTimes(requiredBookedTimes, request.getDuration());
-    if (request.getOptionalAttendees().size() == 0) {
+    // If there are no required attendees, set the required available times to empty (all day is returned)
+    if (request.getAttendees().isEmpty()) {
+      requiredAvailableTimes = Collections.emptySet();
+    }
+
+    // Do the same algorithm, but for all possible attendees.
+    List<String> allAttendees = new ArrayList<>();
+    allAttendees.addAll(request.getAttendees());
+    allAttendees.addAll(request.getOptionalAttendees());
+
+    List<TimeRange> allBookedTimes = getAttendeeMeetings(allAttendees, events);
+    Collections.sort(allBookedTimes, TimeRange.ORDER_BY_START);
+    Collection<TimeRange> allAvailableTimes = getAvailableTimes(allBookedTimes, request.getDuration());
+
+    // If there are no times for all of the attendees on the request, return the required times.
+    if (allAvailableTimes.isEmpty()) {
       return requiredAvailableTimes;
     }
 
-    List<TimeRange> optionalBookedTimes = getAttendeeMeetings(request.getOptionalAttendees(), events);
-    return null;
+    return allAvailableTimes;
   }
 
+  /**
+  * Get all available meeting times, given a sorted list of booked times and a meeting duration.
+  */
   private Collection<TimeRange> getAvailableTimes(List<TimeRange> bookedTimes, long duration) {
     /* Algorithm: have a start time and end time. The start time begins as the beginning of the day,
        while the end time begins as 0 or null. Then for every time range in the unavailable meetings,
